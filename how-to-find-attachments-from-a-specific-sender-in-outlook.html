@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to find attachments from a specific sender in Outlook | KAM-Q</title>
+<meta name="description" content="Find Outlook attachments by sender. Use Outlook’s search filters or select a person in KAM-Q to browse their indexed attachment list.">
+
+<link rel="canonical" href="https://kam-q.com/how-to-find-attachments-from-a-specific-sender-in-outlook.html">
+<meta property="og:title" content="How to find attachments from a specific sender in Outlook | KAM-Q">
+<meta property="og:description" content="Find Outlook attachments by sender. Use Outlook’s search filters or select a person in KAM-Q to browse their indexed attachment list.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kam-q.com/how-to-find-attachments-from-a-specific-sender-in-outlook.html">
+<meta property="og:site_name" content="KAM-Q">
+<meta property="og:image" content="https://kam-q.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+
+<style>article.doc code{overflow-wrap:anywhere}article.doc h2[id]{scroll-margin-top:88px}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a href="index.html" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
+<nav><a href="index.html#features">Features</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="main">
+
+<article class="doc">
+<p><a href="index.html">KAM-Q home</a> / Outlook guide</p>
+<h1>How to find attachments from a specific sender in Outlook</h1>
+<p class="lead">Remember who sent the file, but not which email it was in? KAM-Q’s People view lets you select a sender and browse the attachment list from their indexed mail.</p>
+<p><small>Updated <time datetime="2026-10-12">October 12, 2026</time></small></p>
+<div class="note"><strong>Quick answer in classic Outlook:</strong> search for <code>from:alex@example.com hasattachments:yes</code>, replacing the example address with your sender’s address. Check the search scope, then open a matching message to find its files. <a href="#outlook">See the Outlook steps</a>.</div>
+<h2 id="kamq">Browse a sender’s files in KAM-Q</h2>
+<p>Outlook filters messages by sender and whether they have attachments. You then open the matching messages to inspect their files. In KAM-Q, select a person in People and browse their attachment list, newest first.</p>
+<ol>
+<li><strong>Open classic Outlook and KAM-Q.</strong> Keep Outlook open while using the Windows app.</li>
+<li><strong>Choose the folders to include.</strong> Include the folders where this sender’s messages are stored, and let KAM-Q index them. The list reflects the mail indexed so far.</li>
+<li><strong>Open People and select the sender.</strong> Check the person’s name and address to identify the right sender.</li>
+<li><strong>Browse their attachments.</strong> Review the files, newest first. Open a file, or open the email it came from to check the surrounding conversation.</li>
+</ol>
+<p>This is useful when you remember the person and want to review files they sent over time. If you know part of a file name, KAM-Q also supports searching attachment names. Searching a file name is different from searching the text inside a document.</p>
+<p>For example, a supplier may have sent a quotation and then a revision. Browse that supplier’s files and check the original emails to confirm which version you need. Compare dates and names; a repeated file name does not establish that the contents are the same.</p>
+<div class="note">KAM-Q reads Outlook mail and keeps its own index on your computer. The Outlook version does not send, move, or delete messages. It cannot show files from mail that has not been included and indexed.</div>
+<h2 id="requirements">Try KAM-Q with classic Outlook</h2>
+<p>The available desktop download is <strong>KAM-Q 2.0.0 for Windows 10 or 11 with classic Outlook</strong>, the Outlook app with a File tab. <strong>New Outlook is not supported by the KAM-Q desktop app.</strong> Mac versions for classic Outlook and Apple Mail are coming soon.</p>
+<p>Try it free for <strong>7 days</strong>. KAM-Q costs <strong>$39.99 for the first year</strong> and <strong>$19.99 per year to renew</strong>. One license covers two computers. Desktop versions released while your license is current remain yours to use if you stop renewing; renewal pays for newer versions.</p>
+<div class="cta"><a class="btn" href="downloads/KAM-Q-2.0.0.msi">Download for Windows</a><a class="btn ghost" href="download.html">Requirements and options</a></div>
+<p>Read the <a href="terms.html">license terms</a>, see <a href="index.html#features">KAM-Q’s features</a>, or <a href="support.html">get support</a>.</p>
+<h2 id="outlook">Use Outlook’s built-in search</h2>
+<p>You can find attached files with Outlook alone. Its sender and attachment filters return the messages you need to inspect.</p>
+<details><summary>Classic Outlook: sender and attachment search steps</summary>
+<ol>
+<li>Open Mail and click the Search box above the message list.</li>
+<li>Enter <code>from:alex@example.com hasattachments:yes</code> with the actual sender address, then press Enter. The <code>from:</code> operator limits the sender; an address typed alone can match text elsewhere.</li>
+<li>Check the scope selector. Choose Current Mailbox, Current Folder, or All Mailboxes as appropriate for where the message is stored.</li>
+<li>Open a matching message and review its attached files.</li>
+</ol>
+<p>To use the ribbon instead, click Search, select <strong>From</strong> in the Refine group and supply the sender, then select <strong>Has Attachments</strong>. Labels can vary slightly by Outlook version.</p>
+<p>If you remember a subject word, try <code>from:alex@example.com hasattachments:yes subject:proposal</code>. This narrows the message subject; it does not require the file to be named “proposal.”</p>
+</details>
+<details><summary>New Outlook or Outlook on the web</summary>
+<p>Use Outlook’s search filter button at the right of the Search box. Enter the sender in <strong>From</strong>, check <strong>Attachments</strong>, and run the search. Review the selected folder or search scope if a message is missing.</p>
+<p>Microsoft also documents a <strong>Files</strong> option for narrowing search results. Use a sender filter as well when you need files from one person. These Outlook tools do not require KAM-Q.</p>
+</details>
+<h2 id="missing">If a file is missing</h2>
+<ul>
+<li><strong>Check the sender address.</strong> Search a second address, alias, or shared mailbox separately if the person used one.</li>
+<li><strong>Include the right folders.</strong> In Outlook, widen the search scope. In KAM-Q, check the selected folders and whether indexing has reached those messages.</li>
+<li><strong>Find the original email.</strong> A later reply in a conversation may not include the attachment.</li>
+<li><strong>Look for a shared link.</strong> A OneDrive or SharePoint link in the message body may not be a file attachment. In Outlook, remove the attachment filter and search the sender plus a subject word.</li>
+</ul>
+<h2>Questions</h2>
+<details><summary>Does the Outlook query list files or emails?</summary><p>It finds emails from the specified sender that have attachments. Open a matching message to inspect its files. KAM-Q’s People view offers an attachment list organized by person.</p></details>
+<details><summary>Can I use Outlook’s search without buying KAM-Q?</summary><p>Yes. The native method uses Outlook’s built-in tools. KAM-Q is an optional way to browse indexed mail and files by sender.</p></details>
+<details><summary>Why is a sender’s KAM-Q file list incomplete?</summary><p>Check that their messages are in folders selected for indexing and that indexing has reached them. Keep classic Outlook open. If the list still looks wrong, contact <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p></details>
+<h2>Microsoft references</h2>
+<p>The native Outlook instructions were checked against Microsoft’s official documentation on October 12, 2026. Interface labels may differ between versions.</p>
+<ul>
+<li><a href="https://support.microsoft.com/en-us/outlook/getstarted/how-to-search-in-outlook">How to search in Outlook</a></li>
+<li><a href="https://support.microsoft.com/en-us/outlook/training/search-and-filter-email">Search and filter email</a></li>
+<li><a href="https://support.microsoft.com/en-us/outlook/find-all-messages-with-attachments-in-outlook">Find all messages with attachments in Outlook</a></li>
+</ul>
+</article>
+
+</main>
+<footer><div class="wrap">
+<div>&copy; 2026 PRB Interactive Inc. KAM-Q is a product of PRB Interactive Inc.</div>
+<div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="support.html">Support</a></div>
+</div></footer>
+</body>
+</html>
