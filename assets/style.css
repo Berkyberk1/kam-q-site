@@ -60,3 +60,9 @@ footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
   box-shadow:0 10px 30px rgba(0,0,0,.10);background:#fff}
 .shot figcaption{margin-top:10px;font-size:15px;color:var(--muted);line-height:1.5}
 @media(max-width:820px){.grid.g2{grid-template-columns:1fr}}
+/* Comparison tables. Three columns of short phrases, so they must stay readable on a phone. */
+table.cmp{width:100%;border-collapse:collapse;margin:20px 0;font-size:16px}
+table.cmp th,table.cmp td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+table.cmp th{font-weight:600;background:var(--alt)}
+table.cmp tr td:first-child{font-weight:600;width:28%}
+@media(max-width:700px){table.cmp{font-size:14px}table.cmp th,table.cmp td{padding:9px 8px}}
