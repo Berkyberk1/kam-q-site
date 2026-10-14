@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Outlook search is slow or missing emails</title>
+<meta name="description" content="What causes Outlook search to miss mail or crawl, how to rebuild the Windows index, and what to do when rebuilding does not help.">
+
+<link rel="canonical" href="https://kam-q.com/outlook-search-slow.html">
+<meta property="og:title" content="Why Outlook search is slow or missing emails">
+<meta property="og:description" content="What causes Outlook search to miss mail or crawl, how to rebuild the Windows index, and what to do when rebuilding does not help.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kam-q.com/outlook-search-slow.html">
+<meta property="og:site_name" content="KAM-Q">
+<meta property="og:image" content="https://kam-q.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top"><div class="wrap">
+<a href="index.html" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
+<nav><a href="index.html#features">Features</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="main">
+<div class="doc">
+<h1>Outlook search is slow or not finding emails</h1>
+<p class="lead">What causes Outlook search to miss mail or crawl, how to rebuild the Windows index, and what to do when rebuilding does not help.</p>
+
+<p>Outlook search leans on the Windows Search index. When that index is incomplete or damaged,
+Outlook does not tell you. It returns fewer results and looks like it worked.</p>
+
+<h2>Check whether Outlook has finished indexing</h2>
+<p>In Outlook, click the search box, then <b>Search Tools</b>, then <b>Indexing Status</b>. If it
+reports items remaining, search results are incomplete until that number reaches zero. On a large
+mailbox after a fresh install this can take hours.</p>
+
+<h2>Confirm Outlook is actually being indexed</h2>
+<p>Open <b>Indexing Options</b> from the Start menu, click <b>Modify</b>, and check that Microsoft
+Outlook is ticked. It gets switched off by profile changes and by some managed-computer policies.</p>
+
+<h2>Rebuild the index</h2>
+<p>In Indexing Options, click <b>Advanced</b>, then <b>Rebuild</b>. Expect several hours on a large
+mailbox, and expect search to be worse until it finishes. Rebuild once. Rebuilding repeatedly is
+the most common way people lose a day.</p>
+
+<h2>When the mailbox is not on your computer</h2>
+<p>If your account is set to keep only a few months of mail offline, Outlook can only search what
+it has. Everything older is searched by the server, which is slower and behaves differently. In
+<b>Account Settings</b>, <b>Change</b>, move the <b>Mail to keep offline</b> slider to All. That
+makes the local file larger and takes time to download, but it is why older mail seems to vanish
+from search.</p>
+
+<h2>Why rebuilding sometimes changes nothing</h2>
+<p>Windows Search is shared by every program on the computer and is not tuned for a 200,000 message
+mailbox. On very large mailboxes it falls behind permanently: it finishes, then falls behind again
+as mail arrives. There is no setting that fixes this, which is the honest answer most pages on this
+subject will not give you.</p>
+<p>At that point the options are to accept it, to archive aggressively so the mailbox is smaller, or
+to use a search tool that keeps its own index of your mail instead of relying on Windows Search.</p>
+
+<hr style="margin:40px 0;border:0;border-top:1px solid #e5e7eb">
+<p><b>KAM-Q</b> builds a private search index of your mailbox on your own computer, so results
+appear as you type. It works with classic Outlook on Windows and Mac, and with Apple Mail.
+Your mail never leaves your machine. <a href="download.html">Try it free for 7 days</a>.</p>
+</div>
+</main>
+<footer><div class="wrap">
+<div>&copy; 2026 PRB Interactive Inc. KAM-Q is a product of PRB Interactive Inc.</div>
+<div><a href="whats-new.html">What&#39;s new</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="support.html">Support</a></div>
+</div></footer>
+</body>
+</html>

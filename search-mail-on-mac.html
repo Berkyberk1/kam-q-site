@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Searching email on a Mac: Outlook and Apple Mail</title>
+<meta name="description" content="Why Spotlight misses mail, how to rebuild the Apple Mail index, and what to do about slow search in Outlook for Mac.">
+
+<link rel="canonical" href="https://kam-q.com/search-mail-on-mac.html">
+<meta property="og:title" content="Searching email on a Mac: Outlook and Apple Mail">
+<meta property="og:description" content="Why Spotlight misses mail, how to rebuild the Apple Mail index, and what to do about slow search in Outlook for Mac.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kam-q.com/search-mail-on-mac.html">
+<meta property="og:site_name" content="KAM-Q">
+<meta property="og:image" content="https://kam-q.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top"><div class="wrap">
+<a href="index.html" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
+<nav><a href="index.html#features">Features</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="main">
+<div class="doc">
+<h1>Searching email on a Mac</h1>
+<p class="lead">Why Spotlight misses mail, how to rebuild the Apple Mail index, and what to do about slow search in Outlook for Mac.</p>
+
+<h2>Apple Mail: rebuild the index</h2>
+<p>Apple Mail keeps its own search index, and it does get corrupted. Quit Mail, then delete the
+envelope index files in <code>~/Library/Mail/V10/MailData/</code> (the version number varies by
+macOS release). Files beginning <code>Envelope Index</code> are the ones. Reopen Mail and it
+rebuilds them. Back the folder up first.</p>
+<p>Alternatively, in Mail choose <b>Mailbox</b>, then <b>Rebuild</b>, with a mailbox selected. That
+is slower but safer, and it only rebuilds the one mailbox.</p>
+
+<h2>Outlook for Mac</h2>
+<p>Outlook for Mac relies on Spotlight. If search returns nothing at all, the usual cause is that
+Outlook's profile folder has been excluded from Spotlight. Open <b>System Settings</b>, then
+<b>Siri &amp; Spotlight</b>, then <b>Spotlight Privacy</b>, and remove any entry covering your home
+folder or Outlook's data.</p>
+<p>The new Outlook for Mac behaves differently from the classic version and searches more on the
+server. If you have switched over recently and search feels worse, that is why.</p>
+
+<h2>Why Spotlight misses old mail</h2>
+<p>Spotlight indexes the whole computer and deprioritizes mail when it is busy. On a large mailbox
+it never fully catches up, and nothing tells you. You simply get fewer results than exist.</p>
+<p>A tool that indexes only your mail, and keeps that index to itself, does not have this problem.
+KAM-Q reads your mail through Outlook or Apple Mail, keeps its index in your own folder, and does
+not compete with everything else on the machine.</p>
+
+<hr style="margin:40px 0;border:0;border-top:1px solid #e5e7eb">
+<p><b>KAM-Q</b> builds a private search index of your mailbox on your own computer, so results
+appear as you type. It works with classic Outlook on Windows and Mac, and with Apple Mail.
+Your mail never leaves your machine. <a href="download.html">Try it free for 7 days</a>.</p>
+</div>
+</main>
+<footer><div class="wrap">
+<div>&copy; 2026 PRB Interactive Inc. KAM-Q is a product of PRB Interactive Inc.</div>
+<div><a href="whats-new.html">What&#39;s new</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="support.html">Support</a></div>
+</div></footer>
+</body>
+</html>
