@@ -53,3 +53,10 @@ footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
 @media (prefers-color-scheme:dark){.promo code{background:rgba(255,255,255,.10)}}
 .promo .ends{opacity:.78}
 @media (max-width:620px){.promo{font-size:13.5px;padding:9px 12px}.promo .ends{display:block;margin-top:2px}}
+/* Product screenshots. A screenshot of a desktop app is the thing people actually want to
+   see before downloading, so it gets real width and a frame rather than a thumbnail. */
+.shot{margin:0}
+.shot img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.10);background:#fff}
+.shot figcaption{margin-top:10px;font-size:15px;color:var(--muted);line-height:1.5}
+@media(max-width:820px){.grid.g2{grid-template-columns:1fr}}
