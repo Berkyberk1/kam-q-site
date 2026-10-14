@@ -42,3 +42,14 @@ footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
 .note{background:var(--soft);border-radius:12px;padding:14px 18px;color:var(--text);font-size:15px}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.g3,.g4,.g2,.steps{grid-template-columns:1fr}nav a{margin-left:14px}.hero{padding-top:36px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Launch offer bar. Sits above the sticky header, so it scrolls away rather than eating
+   screen space on a phone. Uses the same variables as everything else, so it follows dark
+   mode without a second rule. */
+.promo{background:var(--navy);color:#FFFFFF;font-size:15px;text-align:center;padding:11px 16px}
+@media (prefers-color-scheme:dark){.promo{background:var(--soft);color:var(--text)}}
+.promo b{font-weight:800}
+.promo code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;background:rgba(255,255,255,.16);padding:2px 9px;border-radius:7px;letter-spacing:.04em}
+@media (prefers-color-scheme:dark){.promo code{background:rgba(255,255,255,.10)}}
+.promo .ends{opacity:.78}
+@media (max-width:620px){.promo{font-size:13.5px;padding:9px 12px}.promo .ends{display:block;margin-top:2px}}
