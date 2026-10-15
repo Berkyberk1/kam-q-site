@@ -78,3 +78,8 @@ table.cmp tr td:first-child{font-weight:600;width:28%}
   .hero-art video{display:none}
   .hero-art .still{display:block}
 }
+/* The demo video. Same frame as the screenshots so the section reads as one thing, but it
+   keeps its own dark backdrop: the recording is a dark-mode app on a dark desktop, and a
+   white frame around it looks like a mistake. */
+.demo-video video{width:100%;height:auto;display:block;border-radius:12px;background:#000;
+  border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.14)}
