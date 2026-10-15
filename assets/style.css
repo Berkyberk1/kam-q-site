@@ -66,3 +66,15 @@ table.cmp th,table.cmp td{text-align:left;padding:12px 14px;border-bottom:1px so
 table.cmp th{font-weight:600;background:var(--alt)}
 table.cmp tr td:first-child{font-weight:600;width:28%}
 @media(max-width:700px){table.cmp{font-size:14px}table.cmp th,table.cmp td{padding:9px 8px}}
+/* Hero animation. The artwork is drawn on its own near-white background, which disappears
+   into the page in light mode and would be a glaring white slab in dark mode. So it sits in
+   a panel of that same colour with rounded corners: deliberate in dark mode, invisible in
+   light. */
+.hero-art{line-height:0}
+.hero-art video,.hero-art .still{width:100%;height:auto;border-radius:16px;background:#F8F8F5}
+.hero-art .still{display:none}
+/* Someone who has asked their system to reduce motion gets the first frame and no video. */
+@media (prefers-reduced-motion:reduce){
+  .hero-art video{display:none}
+  .hero-art .still{display:block}
+}
