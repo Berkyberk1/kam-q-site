@@ -36,18 +36,20 @@
 <h2>Who we are</h2>
 <p>KAM-Q is made by PRB Interactive Inc., a Delaware corporation ("we", "us"). Contact: <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p>
 <h2>What KAM-Q does</h2>
-<p>KAM-Q builds a search index of your mailbox so you can find messages, people, and attachments quickly. The index holds each message's sender, recipients, subject, date, folder, and attachment names. It does not index the text of your messages.</p>
+<p>KAM-Q builds a search index of your mailbox so you can find messages, people, and attachments quickly. The index holds each message's sender, recipients, subject, date, folder, and attachment names.</p>
+<p><b>In the Windows and Mac apps, the text of your messages is not indexed.</b> The web app is slightly different, because of how Gmail returns mail. That is set out below.</p>
 <h2>Information we collect</h2>
 <p><b>We collect none of your mail or personal information on our servers.</b> We do not run servers that receive your email, your index, or your sign-in details.</p>
 <ul>
 <li><b>Windows and Mac apps.</b> They read your mail through Outlook or Apple Mail on your own computer and keep their index in a folder on that computer. <b>Your mail never leaves your computer.</b> If you bought a license from our store, KAM-Q contacts the store from time to time to check that the license is still valid. That check sends your license key and nothing else: no mail, no names, no index. Licenses issued directly by us are checked on your computer and make no connection at all.</li>
 <li><b>Web app.</b> Your browser connects directly to Microsoft or Google. Sign-in tokens, settings, and the index are stored in your browser only. Signing out and erasing KAM-Q data removes them.</li>
+<li><b>Gmail in the web app.</b> KAM-Q reads message headers (sender, recipients, subject, date, labels), attachment file names, and a short preview of each message that Gmail provides, called a snippet. Snippets come from the message text. KAM-Q stores these in your browser so you can search them. <b>It does not store full message bodies.</b> When you open or save an attachment, KAM-Q asks Gmail for that message, and Gmail's response can include inline message content. KAM-Q uses it to produce the file you chose and does not keep it. Your browser connects directly to Google, and none of this goes to PRB Interactive Inc. or to any server we operate. If you turn on Cleanup, KAM-Q also asks for permission to move messages to Trash and to restore them. It does not permanently delete messages.</li>
 <li><b>This website.</b> It is a static site. We use no advertising or tracking cookies. Our hosting provider may keep standard server logs, such as your IP address and the pages requested.</li>
 </ul>
 <h2>Permissions KAM-Q asks for</h2>
 <ul>
 <li><b>Microsoft 365 and Outlook.com:</b> <code>User.Read</code> to show who is signed in, and <code>Mail.Read</code> to read mail. Both are read-only.</li>
-<li><b>Gmail:</b> read-only access by default. If you turn on the optional Cleanup feature, KAM-Q also asks for permission to move messages to Trash. It never deletes messages permanently.</li>
+<li><b>Gmail:</b> <code>gmail.readonly</code> to read your mail, asked for when you sign in. If you turn on the optional Cleanup feature, KAM-Q also asks for <code>gmail.modify</code> to move messages to Trash and to restore them. That one is only requested at the moment you choose to move mail. It never deletes messages permanently.</li>
 </ul>
 <h2>How we use information</h2>
 <p>Information from your mailbox is used only to provide search and People features to you, inside your own browser or on your own computer. It is not used for advertising, sold, or shared.</p>
