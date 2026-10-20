@@ -64,8 +64,20 @@
 <p>We do not share your information with anyone, because we do not have it.</p>
 <h2>Keeping and deleting your data</h2>
 <p>Your index lives on your computer or in your browser. Delete the KAM-Q data folder, or sign out and erase data in the web app, and it is gone. You can also remove KAM-Q's access at any time in your <a href="https://myaccount.google.com/permissions">Google account</a> or your <a href="https://myapps.microsoft.com">Microsoft account</a>.</p>
-<h2>Security</h2>
-<p>Because nothing is sent to us, the main protection is that your mail stays where it already lives. Keep your computer and browser up to date and protected with a password.</p>
+<h2>How we protect your data</h2>
+<p>KAM-Q is built so that the strongest protection is structural: we hold none of your mail, so there is no copy of it for us to lose. The specific measures below apply to the data KAM-Q does handle, including sensitive data such as the contents of your mailbox and the tokens that give access to it.</p>
+<ul>
+<li><b>Encryption in transit.</b> Every connection KAM-Q makes uses HTTPS with TLS 1.2 or later. This covers the connections your browser makes to Google and to Microsoft, the licence check the desktop apps make to our store provider, and this website. KAM-Q makes no unencrypted network connections.</li>
+<li><b>Encryption at rest.</b> On Windows and Mac, the index is written inside your own user profile and is protected by the account permissions and the disk encryption of your computer, such as BitLocker or FileVault. In the web app, the index and your sign-in tokens are held in your browser's own storage for the KAM-Q site, which your browser isolates from every other site and protects with the operating system's user account controls.</li>
+<li><b>Access control.</b> Data stays inside your own user account on your own device. No PRB Interactive Inc. employee or contractor can reach your mailbox, your index, or your tokens, because none of it is transmitted to or stored on any system we operate. There is no administrative back door, because there is no server to put one in.</li>
+<li><b>Authentication and tokens.</b> Sign-in uses the OAuth 2.0 Authorization Code flow with PKCE against Google and Microsoft directly. KAM-Q never sees, asks for, or stores your password. Access tokens are short lived and are held only in your browser's storage. KAM-Q holds no client secret, and the connection to the identity provider is validated against a registered redirect address.</li>
+<li><b>Least privilege.</b> KAM-Q requests the narrowest permissions that allow the product to work, and requests them incrementally. The optional Cleanup permission is asked for only at the moment you choose to move mail, not at sign-in. The permissions in use are listed in full above.</li>
+<li><b>Retention and deletion.</b> There is no retention period on our side, because we store nothing. On your side the index persists until you remove it. In the web app, Erase KAM-Q data deletes the index and the stored tokens immediately. On Windows and Mac, deleting the KAM-Q data folder removes the index. You can revoke KAM-Q's access at any time from your Google or Microsoft account, which invalidates its tokens without needing anything from us.</li>
+<li><b>Code integrity.</b> The Windows and Mac applications are code signed by PRB Interactive Inc., and the Mac applications are notarized by Apple, so you can confirm that what you installed is what we published and that it has not been altered.</li>
+<li><b>Third parties.</b> The only third parties involved are the identity and mail providers you choose to connect, our payment and licensing provider, which receives a licence key and your purchase details and never receives mail data, and the hosting and analytics providers for this website. No provider receives the contents of your mailbox.</li>
+<li><b>Incident response.</b> If we ever become aware of a security issue affecting KAM-Q, we will publish it on this site and notify affected customers by email without undue delay, and in any event within 72 hours of confirming it. To report a suspected vulnerability, write to <a href="mailto:support@kam-q.com">support@kam-q.com</a> and we will acknowledge it within two business days.</li>
+</ul>
+<p>Because the data lives with you, the protections on your own devices matter. Keep your computer and browser up to date, use a password or passcode on your account, and turn on full disk encryption.</p>
 <h2>Children</h2>
 <p>KAM-Q is not directed to children under 13.</p>
 <h2>Changes</h2>
