@@ -64,12 +64,13 @@
 
 <p>Write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20team%20pricing">support@kam-q.com</a> with how many people you need to cover and we will send a quote and a single key sized for it.</p>
 
-<h2 id="installing-on-windows">Installing on Windows</h2>
-<p>The KAM-Q installer is digitally signed by PRB Interactive Inc. The first time you run it, Windows may still show a blue box that says "Windows protected your PC." Here is what that is, and how to satisfy yourself about what you are running.</p>
+<!-- The id stays installing-on-windows so the link from the download page keeps working. -->
+<h2 id="installing-on-windows">Installing KAM-Q on Windows</h2>
 
-<h3>Why the warning appears</h3>
-<p>Microsoft Defender SmartScreen checks how often a file has been downloaded and run before. Our signing certificate is new, so there is not much history attached to it yet, and SmartScreen asks about anything it has not seen often. It is a measure of how common a file is, not a judgment that something is wrong with it. As more people download KAM-Q the warning stops appearing.</p>
-<p>To get past it: click <b>More info</b>, then <b>Run anyway</b>. On a managed work computer that choice may not be offered, in which case your IT team can allow the PRB Interactive Inc. publisher.</p>
+<!-- Paul's wording, 24 October, used as given. -->
+<p>Windows includes built-in security features that help protect your computer when installing applications. Depending on your Windows settings, you may see an additional confirmation message during installation.</p>
+<p>KAM-Q is digitally signed by PRB Interactive Inc., allowing you to verify the publisher and confirm that the installer has not been modified since it was signed.</p>
+<p>If Windows displays a security message, please review it and follow the steps below to verify the publisher before deciding whether to proceed.</p>
 
 <h3>How to check the publisher yourself</h3>
 <p>Do not take our word for it. Before running the file:</p>
@@ -81,10 +82,19 @@
 </ol>
 <p>If the signature is missing, broken, or names anyone other than PRB Interactive Inc., do not run the file, and please tell us at <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p>
 
-<h3>What the signature does and does not tell you</h3>
-<p>A valid signature shows two things: that PRB Interactive Inc. published the file, and that nobody has altered it since. That is worth having, and it is why we sign.</p>
-<p>It is not a safety certificate, and it is not an endorsement. Microsoft has not reviewed, approved, or certified KAM-Q, and signing is something any company can arrange. Treat it as identification, so you know who to hold responsible, rather than as a promise from anyone else that the software is good.</p>
-<p>Download KAM-Q only from kam-q.com. We do not distribute it through download portals, and a copy from anywhere else is not one we can vouch for.</p>
+<!-- Paul's wording, 24 October, used as given. The shield is aria-hidden because the
+     sentence beside it carries the meaning. It marks a signature the reader can check for
+     themselves, which the steps above tell them how to do, and no outside party is
+     invoked. The third paragraph replaces the separate "download only from kam-q.com"
+     line that used to sit here, which said the same thing twice. -->
+<h3>Your security matters</h3>
+<p class="sig"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.3l5 1.9v4.3c0 3.1-2.1 5.5-5 6.5-2.9-1-5-3.4-5-6.5V3.2z" fill="var(--green)"></path><path d="M5.6 8.1l1.7 1.7 3.2-3.4" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>KAM-Q is digitally signed by PRB Interactive Inc., allowing Windows to verify the software's publisher and confirm that the installer has not been modified since it was signed.</span></p>
+<p>Digital signing is an important part of responsible software distribution. It gives you a way to verify that you're installing an authentic version of KAM-Q.</p>
+<p>For your protection, always download KAM-Q directly from our official website, kam-q.com.</p>
+<!-- Paul's wording, 24 October. Deliberately quiet: the reader who wants to know what a
+     signature is worth will read it, and nobody else is stopped on their way out. -->
+<p class="sigfine">A digital signature verifies the publisher and integrity of the installer. It does not represent a separate security review or certification.</p>
 
 <h2>Where KAM-Q keeps its data</h2>
 <ul>

@@ -49,7 +49,13 @@
      What a first-time visitor needs here is who signed it, how to check that for themselves,
      and an honest heads-up that a warning may appear, with the detail one click away. The
      warning is not hidden and the link is plain text, not a footnote. -->
-<p class="fine" style="margin-top:12px">Digitally signed by <b>PRB Interactive Inc.</b> You can confirm that yourself before running it: right-click the file, choose Properties, then Digital Signatures. Windows may still show a warning the first time, because the signature is new. <a href="support.html#installing-on-windows">What the warning means and how to check the publisher</a>.</p>
+<!-- The shield is decorative and marked aria-hidden: the sentence beside it carries the
+     whole meaning, and a screen reader announcing "image" here would add nothing. It
+     stands for a signature you can verify yourself, which is why the next clause tells
+     you how. It is not a certification mark and no outside party is being invoked. -->
+<p class="fine sig" style="margin-top:12px">
+<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.3l5 1.9v4.3c0 3.1-2.1 5.5-5 6.5-2.9-1-5-3.4-5-6.5V3.2z" fill="var(--green)"></path><path d="M5.6 8.1l1.7 1.7 3.2-3.4" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>Digitally signed by <b>PRB Interactive Inc.</b> You can confirm that yourself before running it: right-click the file, choose Properties, then Digital Signatures. Windows may still show a warning the first time, because the signature is new. <a href="support.html#installing-on-windows">What the warning means and how to check the publisher</a>.</span></p>
 <p style="margin-top:14px"><a class="btn" href="downloads/KAM-Q-2.0.1.msi" data-ev="Download Windows" data-ev-where="download-card">Download version 2.0.1</a></p>
 <p class="fine">411 KB. Installs for you only, not for the whole computer.</p>
 <p class="fine" style="margin-top:10px">Ready to buy? <a href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="download-windows">Get a license</a>, one key covers every version.</p></div>
