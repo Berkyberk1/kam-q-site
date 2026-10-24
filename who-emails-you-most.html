@@ -67,5 +67,63 @@ Your mail never leaves your machine. <a href="download.html">Try it free for 7 d
 <div>&copy; 2026 PRB Interactive Inc. KAM-Q&trade; is a trademark of PRB Interactive Inc.</div>
 <div><a href="whats-new.html">What&#39;s new</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="support.html">Support</a></div>
 </div></footer>
+<script>
+(function () {
+  var NAV_MS = 200;
+
+  function fire(name, props, go) {
+    var moved = false;
+    function once() { if (moved) { return; } moved = true; if (go) { go(); } }
+    try {
+      window.plausible(name, { props: props, callback: once });
+    } catch (e) {
+      once();
+      return;
+    }
+    if (go) { window.setTimeout(once, NAV_MS); }
+  }
+
+  function props(el) {
+    var where = el.getAttribute('data-ev-where');
+    return where ? { location: where } : {};
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0) { return; }
+    var t = e.target;
+    if (!t || !t.closest) { return; }
+    var el = t.closest('[data-ev]');
+    if (!el) { return; }
+    var name = el.getAttribute('data-ev');
+    if (!name) { return; }
+
+    // A new tab or window leaves this page loaded, so the event survives on its own and
+    // the browser should be left to do what the visitor asked.
+    var newTab = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || el.target === '_blank';
+    var href = el.getAttribute('href');
+    if (newTab || !href || href.charAt(0) === '#') {
+      fire(name, props(el), null);
+      return;
+    }
+
+    e.preventDefault();
+    var dest = el.href;
+    fire(name, props(el), function () { window.location.href = dest; });
+  }, false);
+
+  // Counted once per page view. Scrubbing or replaying is not a second conversion.
+  var vids = document.querySelectorAll('video[data-ev]');
+  for (var i = 0; i < vids.length; i++) {
+    (function (v) {
+      var sent = false;
+      v.addEventListener('play', function () {
+        if (sent) { return; }
+        sent = true;
+        fire(v.getAttribute('data-ev'), props(v), null);
+      });
+    })(vids[i]);
+  }
+})();
+</script>
 </body>
 </html>

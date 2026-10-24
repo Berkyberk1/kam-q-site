@@ -91,3 +91,27 @@ table.cmp tr td:first-child{font-weight:600;width:28%}
 .honest p{margin:0 0 16px;color:var(--muted)}
 @media(max-width:620px){.honest{padding-left:14px}}
 .hero-art .quip{line-height:1.4;margin:14px 0 0;text-align:center;font-weight:700;font-size:18px;color:var(--navy)}
+
+/* Phone and desktop alternatives for the same message. 860px matches the breakpoint where
+   the hero already collapses to a single column, so the two changes happen together.
+   d-only is left unstyled by default so each element keeps its natural display. */
+.m-only{display:none}
+@media(max-width:860px){
+  .m-only{display:block}
+  a.btn.m-only{display:inline-block}
+  .d-only{display:none}
+}
+/* The phone hero sends people here. Land the video just under its heading rather than
+   flush with the top of the screen, so it is obvious what you are looking at. */
+#see-it-work{scroll-margin-top:170px}
+
+/* Phone header. The bar is one flex row with a fixed 68px height, which is right on a wide
+   screen and wrong on a 390px one: the logo and four nav links cannot both fit, so the logo
+   gets squeezed out of shape and the links spill over the edge of the bar. Below 620px the
+   bar is allowed to grow, the logo is told not to shrink, and the links wrap underneath it. */
+@media(max-width:620px){
+  header.top .wrap{flex-wrap:wrap;height:auto;min-height:60px;padding-top:10px;padding-bottom:10px;gap:4px 0}
+  header.top img{flex:0 0 auto;height:26px}
+  header.top nav{width:100%;display:flex;flex-wrap:wrap;gap:0 18px}
+  nav a{margin-left:0;font-size:14.5px}
+}
