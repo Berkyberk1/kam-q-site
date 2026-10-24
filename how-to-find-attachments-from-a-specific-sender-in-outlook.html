@@ -7,6 +7,19 @@
 <meta name="description" content="Remember who sent the file, but not which email it was in? KAM-Q’s People view lets you select a sender and browse the attachment list from their indexed mail.">
 
 <link rel="canonical" href="https://kam-q.com/how-to-find-attachments-from-a-specific-sender-in-outlook.html">
+<script>
+(function () {
+  try {
+    if (location.protocol.indexOf('http') !== 0) { return; }
+    var p = location.pathname;
+    if (/\/index\.html$/.test(p) && window.history && history.replaceState) {
+      history.replaceState(null, '', p.replace(/index\.html$/, '') + location.search + location.hash);
+    }
+  } catch (e) {
+    /* An address bar that cannot be rewritten is not worth breaking the page over. */
+  }
+})();
+</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-yUjObRvUqx2DZaM1lWagy.js"></script>
 <script>
@@ -30,8 +43,8 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top"><div class="wrap">
-<a href="index.html" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="index.html#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
+<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
+<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
 </div></header>
 <main id="main">
 <div class="doc">
@@ -54,7 +67,7 @@
 <p>The available desktop download is <strong>KAM-Q 2.0.1 for Windows 10 or 11 with classic Outlook</strong>, the Outlook app with a File tab. <strong>New Outlook is not supported by the KAM-Q desktop app.</strong> Mac versions for classic Outlook and Apple Mail are available now, both signed and notarized by Apple.</p>
 <p>Try it free for <strong>7 days</strong>. KAM-Q costs <strong>$39.99 for the first year</strong>, or <strong>$24.99 with code FIRSTYEAR</strong>, and <strong>$19.99 per year to renew</strong>. One license covers four installations. Desktop versions released while your license is current remain yours to use if you stop renewing; renewal pays for newer versions.</p>
 <div class="cta"><a class="btn" href="downloads/KAM-Q-2.0.1.msi" data-ev="Download Windows" data-ev-where="attachments-guide">Download for Windows</a><a class="btn ghost" href="download.html">Requirements and options</a></div>
-<p>Read the <a href="terms.html">license terms</a>, see <a href="index.html#features">KAM-Q’s features</a>, or <a href="support.html">get support</a>.</p>
+<p>Read the <a href="terms.html">license terms</a>, see <a href="/#features">KAM-Q’s features</a>, or <a href="support.html">get support</a>.</p>
 <h2 id="outlook">Use Outlook’s built-in search</h2>
 <p>You can find attached files with Outlook alone. Its sender and attachment filters return the messages you need to inspect.</p>
 <details><summary>Classic Outlook: sender and attachment search steps</summary>

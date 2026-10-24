@@ -7,6 +7,19 @@
 <meta name="description" content="The terms for using KAM-Q, and what a license covers.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://kam-q.com/terms.html">
+<script>
+(function () {
+  try {
+    if (location.protocol.indexOf('http') !== 0) { return; }
+    var p = location.pathname;
+    if (/\/index\.html$/.test(p) && window.history && history.replaceState) {
+      history.replaceState(null, '', p.replace(/index\.html$/, '') + location.search + location.hash);
+    }
+  } catch (e) {
+    /* An address bar that cannot be rewritten is not worth breaking the page over. */
+  }
+})();
+</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-yUjObRvUqx2DZaM1lWagy.js"></script>
 <script>
@@ -30,8 +43,8 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top"><div class="wrap">
-<a href="index.html" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="index.html#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
+<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
+<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a></nav>
 </div></header>
 <main id="main">
 
