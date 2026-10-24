@@ -55,17 +55,29 @@
      you how. It is not a certification mark and no outside party is being invoked. -->
 <p class="fine sig" style="margin-top:12px">
 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.3l5 1.9v4.3c0 3.1-2.1 5.5-5 6.5-2.9-1-5-3.4-5-6.5V3.2z" fill="var(--green)"></path><path d="M5.6 8.1l1.7 1.7 3.2-3.4" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<span>Digitally signed by <b>PRB Interactive Inc.</b> You can confirm that yourself before running it: right-click the file, choose Properties, then Digital Signatures. Windows may still show a warning the first time, because the signature is new. <a href="support.html#installing-on-windows">What the warning means and how to check the publisher</a>.</span></p>
+<span>Digitally signed by <b>PRB Interactive Inc.</b> You can confirm that yourself before running it: right-click the file, choose Properties, then Digital Signatures. Windows may show an additional confirmation message, depending on your settings. <a href="support.html#installing-on-windows">What the message means and how to check the publisher</a>.</span></p>
 <p style="margin-top:14px"><a class="btn" href="downloads/KAM-Q-2.0.1.msi" data-ev="Download Windows" data-ev-where="download-card">Download version 2.0.1</a></p>
 <p class="fine">411 KB. Installs for you only, not for the whole computer.</p>
 <p class="fine" style="margin-top:10px">Ready to buy? <a href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="download-windows">Get a license</a>, one key covers every version.</p></div>
 <div class="card"><span class="badge">Available now</span><h3>Mac</h3>
-<p>For classic Outlook for Mac. Signed and notarized by Apple, so it opens without warnings. Free for 7 days. First year $39.99, or $24.99 with code FIRSTYEAR, then $19.99 a year. macOS 11 or later.</p>
+<p>For classic Outlook for Mac. It opens without warnings. Free for 7 days. First year $39.99, or $24.99 with code FIRSTYEAR, then $19.99 a year. macOS 11 or later.</p>
+<!-- A laptop rather than anything Apple-shaped, on purpose: the sentence is about who
+     signed the app and that Apple's notary service processed it, not about Apple having a
+     view on it. The laptop is drawn in currentColor so it follows the text into dark mode,
+     and only the tick carries the green, which keeps it the same weight as the Windows
+     shield beside it. aria-hidden, because the sentence says the whole thing.
+     Both statements verified 13 October on the 3.2 builds now on this site:
+     codesign --verify --strict valid and satisfying its Designated Requirement, and
+     spctl -a -t install returning accepted, source=Notarized Developer ID. -->
+<!-- One statement for both Mac apps, above the first download button. It used to appear
+     once under each button, which put the same sentence twice in one card. -->
+<p class="sig" style="margin-top:12px"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.8" y="2.3" width="10.4" height="7" rx="1.1" fill="none" stroke="currentColor" stroke-width="1.2"></rect><path d="M1 11.9h14l-1.1 1.4a1 1 0 0 1-.8.4H2.9a1 1 0 0 1-.8-.4z" fill="currentColor"></path><path d="M5.9 5.8l1.5 1.6 3-3.2" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span><b>Signed and notarized for macOS.</b> Both the Outlook for Mac and Apple Mail versions are Developer ID signed by PRB Interactive Inc. and notarized by Apple.</span></p>
 <p style="margin-top:14px"><a class="btn" href="downloads/KAM-Q-Mac-3.2.dmg" data-ev="Download Mac Outlook" data-ev-where="download-card">Download for Mac</a></p>
 <p class="fine">611 KB. Version 3.2.</p>
 <p style="margin-top:18px"><b>Using Apple Mail instead?</b> There is a separate app for it.</p>
 <p style="margin-top:10px"><a class="btn" href="downloads/KAM-Q-Apple-Mail-3.2.dmg" data-ev="Download Apple Mail" data-ev-where="download-card">Download for Apple Mail</a></p>
-<p class="fine">597 KB. Version 3.2. Signed and notarized. One license covers both.</p>
+<p class="fine">597 KB. Version 3.2. One license covers both.</p>
 <p class="fine" style="margin-top:10px">Ready to buy? <a href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="download-mac">Get a license</a>, one key covers every version.</p>
 <p style="margin-top:14px">The Apple Mail version searches <b>every account you have set up in Mail</b>. If your Gmail, iCloud, Yahoo, AOL, or work IMAP mail arrives in Apple Mail, KAM-Q indexes it.</p></div>
 <div class="card"><span class="badge">Demo available</span><h3>Web</h3>
@@ -149,6 +161,34 @@
       });
     })(vids[i]);
   }
+})();
+</script>
+<script>
+(function () {
+  function sync() {
+    var tables = document.querySelectorAll('table.cmp');
+    for (var i = 0; i < tables.length; i++) {
+      var t = tables[i];
+      var needs = t.scrollWidth > t.clientWidth + 1;
+      var prev = t.previousElementSibling;
+      var has = prev && prev.className === 'swipe';
+      if (needs && !has) {
+        var p = document.createElement('p');
+        p.className = 'swipe';
+        p.textContent = 'Swipe to compare \u2192';
+        t.parentNode.insertBefore(p, t);
+      } else if (!needs && has) {
+        prev.parentNode.removeChild(prev);
+      }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sync);
+  } else {
+    sync();
+  }
+  window.addEventListener('resize', sync);
+  window.addEventListener('orientationchange', sync);
 })();
 </script>
 </body>

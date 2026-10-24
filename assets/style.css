@@ -148,3 +148,20 @@ table.cmp tr td:first-child{font-weight:600;width:28%}
    defining .fine, which is used across every page and has no rule of its own today:
    giving it one here would resize text on pages nobody has reviewed. */
 .doc p.sigfine{margin-top:16px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+
+/* Narrow phones. Two things run past the right edge at 320px, which is iPhone SE width and
+   still common. Both are site-wide and predate today.
+   The footer link row is five links held apart by a right margin; the margin on the last one
+   pushes the row wider than the screen, so the links are spaced with a gap instead and
+   allowed to wrap. The comparison tables cannot fit three columns of prose at this width at
+   any sane font size, so they scroll sideways within themselves rather than dragging the
+   whole page with them. */
+@media(max-width:420px){
+  footer .wrap{gap:14px}
+  footer div{display:flex;flex-wrap:wrap;gap:4px 16px}
+  footer a{margin-right:0}
+  table.cmp{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+/* The line above a comparison table that runs off the edge. Inserted by script only where
+   the table actually scrolls, so it carries no media query of its own. */
+.swipe{margin:0 0 6px;font-size:13.5px;font-weight:600;color:var(--muted)}

@@ -68,8 +68,10 @@
 <h2 id="installing-on-windows">Installing KAM-Q on Windows</h2>
 
 <!-- Paul's wording, 24 October, used as given. -->
+<!-- The signing sentence that used to sit between these two is gone. It said what the one
+     beside the shield under "Your security matters" already says, half a page further
+     down, and a page that makes the same point twice reads as though it is insisting. -->
 <p>Windows includes built-in security features that help protect your computer when installing applications. Depending on your Windows settings, you may see an additional confirmation message during installation.</p>
-<p>KAM-Q is digitally signed by PRB Interactive Inc., allowing you to verify the publisher and confirm that the installer has not been modified since it was signed.</p>
 <p>If Windows displays a security message, please review it and follow the steps below to verify the publisher before deciding whether to proceed.</p>
 
 <h3>How to check the publisher yourself</h3>
@@ -80,7 +82,12 @@
 <li>Select the signature and click <b>Details</b>. The signer should read <b>PRB Interactive Inc.</b></li>
 <li>Click <b>View Certificate</b> to see who issued it and the dates it is valid for.</li>
 </ol>
-<p>If the signature is missing, broken, or names anyone other than PRB Interactive Inc., do not run the file, and please tell us at <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p>
+<!-- Deliberately in this order. The instruction for getting past the dialog comes after the
+     four checks and is conditional on them passing, so it reads as the last step of
+     verifying rather than as a way around it. The refusal case follows immediately, in
+     bold, so nobody can take the first sentence and stop reading. -->
+<p>If you've verified that the digital signature is valid and identifies PRB Interactive Inc., and you choose to continue, select <b>More info</b> and then <b>Run anyway</b>.</p>
+<p><b>If the signature is missing, invalid, or identifies another publisher, do not proceed.</b> Delete the file, and please tell us at <a href="mailto:support@kam-q.com">support@kam-q.com</a> so we can look into where it came from.</p>
 
 <!-- Paul's wording, 24 October, used as given. The shield is aria-hidden because the
      sentence beside it carries the meaning. It marks a signature the reader can check for
@@ -176,6 +183,34 @@
       });
     })(vids[i]);
   }
+})();
+</script>
+<script>
+(function () {
+  function sync() {
+    var tables = document.querySelectorAll('table.cmp');
+    for (var i = 0; i < tables.length; i++) {
+      var t = tables[i];
+      var needs = t.scrollWidth > t.clientWidth + 1;
+      var prev = t.previousElementSibling;
+      var has = prev && prev.className === 'swipe';
+      if (needs && !has) {
+        var p = document.createElement('p');
+        p.className = 'swipe';
+        p.textContent = 'Swipe to compare \u2192';
+        t.parentNode.insertBefore(p, t);
+      } else if (!needs && has) {
+        prev.parentNode.removeChild(prev);
+      }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sync);
+  } else {
+    sync();
+  }
+  window.addEventListener('resize', sync);
+  window.addEventListener('orientationchange', sync);
 })();
 </script>
 </body>

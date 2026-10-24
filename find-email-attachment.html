@@ -130,5 +130,33 @@ Your mail never leaves your machine. <a href="download.html">Try it free for 7 d
   }
 })();
 </script>
+<script>
+(function () {
+  function sync() {
+    var tables = document.querySelectorAll('table.cmp');
+    for (var i = 0; i < tables.length; i++) {
+      var t = tables[i];
+      var needs = t.scrollWidth > t.clientWidth + 1;
+      var prev = t.previousElementSibling;
+      var has = prev && prev.className === 'swipe';
+      if (needs && !has) {
+        var p = document.createElement('p');
+        p.className = 'swipe';
+        p.textContent = 'Swipe to compare \u2192';
+        t.parentNode.insertBefore(p, t);
+      } else if (!needs && has) {
+        prev.parentNode.removeChild(prev);
+      }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', sync);
+  } else {
+    sync();
+  }
+  window.addEventListener('resize', sync);
+  window.addEventListener('orientationchange', sync);
+})();
+</script>
 </body>
 </html>
