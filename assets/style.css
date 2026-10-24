@@ -115,3 +115,6 @@ table.cmp tr td:first-child{font-weight:600;width:28%}
   header.top nav{width:100%;display:flex;flex-wrap:wrap;gap:0 18px}
   nav a{margin-left:0;font-size:14.5px}
 }
+/* The header is sticky, so a heading jumped to by an anchor lands underneath it. Applies to
+   the Installing on Windows link from the download page and to the team pricing link. */
+.doc h2[id]{scroll-margin-top:88px}

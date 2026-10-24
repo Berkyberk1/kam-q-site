@@ -64,6 +64,28 @@
 
 <p>Write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20team%20pricing">support@kam-q.com</a> with how many people you need to cover and we will send a quote and a single key sized for it.</p>
 
+<h2 id="installing-on-windows">Installing on Windows</h2>
+<p>The KAM-Q installer is digitally signed by PRB Interactive Inc. The first time you run it, Windows may still show a blue box that says "Windows protected your PC." Here is what that is, and how to satisfy yourself about what you are running.</p>
+
+<h3>Why the warning appears</h3>
+<p>Microsoft Defender SmartScreen checks how often a file has been downloaded and run before. Our signing certificate is new, so there is not much history attached to it yet, and SmartScreen asks about anything it has not seen often. It is a measure of how common a file is, not a judgment that something is wrong with it. As more people download KAM-Q the warning stops appearing.</p>
+<p>To get past it: click <b>More info</b>, then <b>Run anyway</b>. On a managed work computer that choice may not be offered, in which case your IT team can allow the PRB Interactive Inc. publisher.</p>
+
+<h3>How to check the publisher yourself</h3>
+<p>Do not take our word for it. Before running the file:</p>
+<ol>
+<li>Right-click <code>KAM-Q-2.0.1.msi</code> and choose <b>Properties</b>.</li>
+<li>Open the <b>Digital Signatures</b> tab. If there is no such tab, the file is not signed and did not come from us.</li>
+<li>Select the signature and click <b>Details</b>. The signer should read <b>PRB Interactive Inc.</b></li>
+<li>Click <b>View Certificate</b> to see who issued it and the dates it is valid for.</li>
+</ol>
+<p>If the signature is missing, broken, or names anyone other than PRB Interactive Inc., do not run the file, and please tell us at <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p>
+
+<h3>What the signature does and does not tell you</h3>
+<p>A valid signature shows two things: that PRB Interactive Inc. published the file, and that nobody has altered it since. That is worth having, and it is why we sign.</p>
+<p>It is not a safety certificate, and it is not an endorsement. Microsoft has not reviewed, approved, or certified KAM-Q, and signing is something any company can arrange. Treat it as identification, so you know who to hold responsible, rather than as a promise from anyone else that the software is good.</p>
+<p>Download KAM-Q only from kam-q.com. We do not distribute it through download portals, and a copy from anywhere else is not one we can vouch for.</p>
+
 <h2>Where KAM-Q keeps its data</h2>
 <ul>
 <li><b>Windows:</b> <code>%LOCALAPPDATA%\KAM-Q</code></li>
@@ -74,7 +96,7 @@
 <p>Delete the KAM-Q program, the Desktop icon, and the data folder above. Your email is not touched, because KAM-Q only keeps its own search index.</p>
 <h2>Common questions</h2>
 <details><summary>KAM-Q says it cannot connect to Outlook</summary><p>Open Outlook first. If Outlook has a New Outlook switch at the top right, turn it off. KAM-Q works with classic Outlook.</p></details>
-<details><summary>Windows warns about the publisher, or says "Windows protected your PC"</summary><p>KAM-Q is signed by PRB Interactive Inc. Right-click the file, choose Properties, then Digital Signatures to see it. The warning appears because the signing certificate is new and Defender SmartScreen has not built up a download history for it. Click More info, then Run anyway. On a managed work computer, ask your IT team to allow the PRB Interactive Inc. publisher.</p></details>
+<details><summary>Windows warns about the publisher, or says "Windows protected your PC"</summary><p>This is covered in full under <a href="#installing-on-windows">Installing on Windows</a> above, including how to confirm the publisher for yourself.</p></details>
 <details><summary>What changed in the latest version?</summary><p>Every release and what changed in it is listed on the <a href="whats-new.html">What&#39;s new</a> page.</p></details>
 <details><summary>What happens if I stop paying?</summary><p>KAM-Q keeps working and everything it has already indexed stays searchable, for as long as you like. Nothing is deleted. What stops is reading new mail into the index, so Rescan and changing folders are unavailable until you renew. Renew and KAM-Q picks up where it left off.</p></details>
 <details><summary>KAM-Q says it needs to check my license</summary><p>If you bought from our store, KAM-Q confirms the license from time to time. It can go 30 days without reaching us, so being offline or travelling is fine. After that it asks for a short internet connection to check. Searching is never affected.</p></details>
