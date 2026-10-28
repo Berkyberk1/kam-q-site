@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to find attachments from a specific sender in Outlook</title>
-<meta name="description" content="Remember who sent the file, but not which email it was in? KAM-Q’s People view lets you select a sender and browse the attachment list from their indexed mail.">
+<meta name="description" content="Remember who sent the file, but not which email it was in? KAM-Q’s People view lists every file a sender has sent, searchable by file name or subject.">
 
 <link rel="canonical" href="https://kam-q.com/how-to-find-attachments-from-a-specific-sender-in-outlook.html">
 <script>
@@ -27,7 +27,7 @@
   plausible.init()
 </script>
 <meta property="og:title" content="How to find attachments from a specific sender in Outlook">
-<meta property="og:description" content="Remember who sent the file, but not which email it was in? KAM-Q’s People view lets you select a sender and browse the attachment list from their indexed mail.">
+<meta property="og:description" content="Remember who sent the file, but not which email it was in? KAM-Q’s People view lists every file a sender has sent, searchable by file name or subject.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kam-q.com/how-to-find-attachments-from-a-specific-sender-in-outlook.html">
 <meta property="og:site_name" content="KAM-Q">
@@ -49,8 +49,8 @@
 <main id="main">
 <div class="doc">
 <h1>How to find attachments from a specific sender in Outlook</h1>
-<p class="lead">Remember who sent the file, but not which email it was in? KAM-Q’s People view lets you select a sender and browse the attachment list from their indexed mail.</p>
-<p><small>Updated <time datetime="2026-10-12">October 12, 2026</time></small></p>
+<p class="lead">Remember who sent the file, but not which email it was in? KAM-Q’s People view lists every file a sender has sent, searchable by file name or subject.</p>
+<p><small>Updated <time datetime="2026-10-28">October 28, 2026</time></small></p>
 <div class="note"><strong>Quick answer in classic Outlook:</strong> search for <code>from:alex@example.com hasattachments:yes</code>, replacing the example address with your sender’s address. Check the search scope, then open a matching message to find its files. <a href="#outlook">See the Outlook steps</a>.</div>
 <h2 id="kamq">Browse a sender’s files in KAM-Q</h2>
 <p>Outlook filters messages by sender and whether they have attachments. You then open the matching messages to inspect their files. In KAM-Q, select a person in People and browse their attachment list, newest first.</p>
@@ -59,13 +59,15 @@
 <li><strong>Choose the folders to include.</strong> Include the folders where this sender’s messages are stored, and let KAM-Q index them. The list reflects the mail indexed so far.</li>
 <li><strong>Open People and select the sender.</strong> Check the person’s name and address to identify the right sender.</li>
 <li><strong>Browse their attachments.</strong> Review the files, newest first. Open a file, or open the email it came from to check the surrounding conversation.</li>
+<li><strong>Search inside that person’s files.</strong> A sender you have worked with for years can have hundreds of files in the list. Type in the box above it to narrow them. It matches the file name and the subject of the email the file arrived with, so either one will find it.</li>
 </ol>
-<p>This is useful when you remember the person and want to review files they sent over time. If you know part of a file name, KAM-Q also supports searching attachment names. Searching a file name is different from searching the text inside a document.</p>
+<p>That last step is the difference worth knowing about. Outlook can filter messages by sender and by whether they have attachments, but you are still opening messages to see what is inside them. In KAM-Q you are looking at the files themselves, and searching the files themselves.</p>
+<p>It helps when you remember the file only partly. If you recall that it was a purchase order but not its number, search <code>purchase order</code> and you get every file whose name or covering email says so. Searching a file name is different from searching the text inside a document, which KAM-Q does not do.</p>
 <p>For example, a supplier may have sent a quotation and then a revision. Browse that supplier’s files and check the original emails to confirm which version you need. Compare dates and names; a repeated file name does not establish that the contents are the same.</p>
 <div class="note">KAM-Q reads Outlook mail and keeps its own index on your computer. The Outlook version does not send, move, or delete messages. It cannot show files from mail that has not been included and indexed.</div>
 <h2 id="requirements">Try KAM-Q with classic Outlook</h2>
 <p>The available desktop download is <strong>KAM-Q 2.0.2 for Windows 10 or 11 with classic Outlook</strong>, the Outlook app with a File tab. <strong>New Outlook is not supported by the KAM-Q desktop app.</strong> Mac versions for classic Outlook and Apple Mail are available now, both signed and notarized by Apple.</p>
-<p>Try it free for <strong>7 days</strong>. KAM-Q costs <strong>$39.99 for the first year</strong>, or <strong>$24.99 with code FIRSTYEAR</strong>, and <strong>$19.99 per year to renew</strong>. One license covers four installations. Desktop versions released while your license is current remain yours to use if you stop renewing; renewal pays for newer versions.</p>
+<p>Try it free for <strong>7 days</strong>. KAM-Q costs <strong>$39.99 for the first year</strong>, or <strong>$24.99 with code FIRSTYEAR</strong>, and <strong>$19.99 per year to renew</strong>. One license covers four installations. If you stop renewing, KAM-Q keeps working and everything already indexed stays searchable. What stops is new mail being added to the index, and newer versions.</p>
 <div class="cta"><a class="btn" href="downloads/KAM-Q-2.0.2.msi" data-ev="Download Windows" data-ev-where="attachments-guide">Download for Windows</a><a class="btn ghost" href="download.html">Requirements and options</a></div>
 <p>Read the <a href="terms.html">license terms</a>, see <a href="/#features">KAM-Q’s features</a>, or <a href="support.html">get support</a>.</p>
 <h2 id="outlook">Use Outlook’s built-in search</h2>
@@ -92,7 +94,7 @@
 <li><strong>Look for a shared link.</strong> A OneDrive or SharePoint link in the message body may not be a file attachment. In Outlook, remove the attachment filter and search the sender plus a subject word.</li>
 </ul>
 <h2>Questions</h2>
-<details><summary>Does the Outlook query list files or emails?</summary><p>It finds emails from the specified sender that have attachments. Open a matching message to inspect its files. KAM-Q’s People view offers an attachment list organized by person.</p></details>
+<details><summary>Does the Outlook query list files or emails?</summary><p>It finds emails from the specified sender that have attachments. Open a matching message to inspect its files. KAM-Q’s People view offers an attachment list organized by person, and that list can itself be searched by file name or by the subject the file arrived with.</p></details>
 <details><summary>Can I use Outlook’s search without buying KAM-Q?</summary><p>Yes. The native method uses Outlook’s built-in tools. KAM-Q is an optional way to browse indexed mail and files by sender.</p></details>
 <details><summary>Why is a sender’s KAM-Q file list incomplete?</summary><p>Check that their messages are in folders selected for indexing and that indexing has reached them. Keep classic Outlook open. If the list still looks wrong, contact <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p></details>
 <h2>Microsoft references</h2>
