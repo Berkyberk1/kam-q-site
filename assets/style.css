@@ -48,6 +48,12 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}footer a{color:var(--muted);margin-right:18px}
 .doc{max-width:760px;padding:48px 24px 72px;margin:0 auto}.doc h1{font-size:38px}.doc h2{font-size:24px;margin-top:36px}.doc p,.doc li{color:var(--text)}
 .note{background:var(--soft);border-radius:12px;padding:14px 18px;color:var(--text);font-size:15px}
+/* The buy box on the download page. Text left, button right, stacking on a phone. The
+   button does not shrink, so the sentence wraps instead of the label. */
+.buy-note{display:flex;align-items:center;gap:20px;justify-content:space-between;flex-wrap:wrap;padding:16px 18px}
+.buy-note>div{flex:1 1 340px;min-width:0}
+.buy-note .btn{flex:0 0 auto;white-space:nowrap}
+@media (max-width:560px){.buy-note{gap:14px}.buy-note .btn{width:100%;text-align:center}}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.g3,.g4,.g2,.steps{grid-template-columns:1fr}nav a{margin-left:14px}.hero{padding-top:36px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
