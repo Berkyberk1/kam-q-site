@@ -13,8 +13,16 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 header.top img{height:30px;width:auto;display:block}
 header.top .logo-dark{display:none}@media (prefers-color-scheme:dark){header.top .logo-light{display:none}header.top .logo-dark{display:block}}
 nav a{margin-left:22px;color:var(--text);text-decoration:none;font-weight:600;font-size:15px}nav a:hover{color:var(--blue)}
+/* The one nav item that is an action rather than a destination, so it is a pill.
+   The complaint that prompted it was that people could not find where to buy. */
+.nav-buy{background:var(--blue);color:var(--on-blue);padding:7px 15px;border-radius:9px}
+.nav-buy:hover{color:var(--on-blue);filter:brightness(1.08)}
 .btn{display:inline-block;background:var(--blue);color:var(--on-blue);padding:13px 24px;border-radius:12px;font-weight:600;text-decoration:none;border:2px solid var(--blue)}
 .btn:hover{filter:brightness(1.08)}.btn.ghost{background:transparent;color:var(--blue)}
+/* Buy now. Navy rather than blue so the trial button keeps the brand colour and the
+   two primary actions are told apart at a glance. In dark mode --navy is the light
+   tone and --bg the dark one, so the pair inverts correctly without a second rule. */
+.btn.buy{background:var(--navy);border-color:var(--navy);color:var(--bg)}
 .hero{padding:64px 0 40px}.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
 h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:0 0 18px;font-weight:800;color:var(--navy);letter-spacing:-0.02em}
 .lead{font-size:20px;color:var(--muted);margin:0 0 28px;max-width:34em}
@@ -165,3 +173,10 @@ table.cmp tr td:first-child{font-weight:600;width:28%}
 /* The line above a comparison table that runs off the edge. Inserted by script only where
    the table actually scrolls, so it carries no media query of its own. */
 .swipe{margin:0 0 6px;font-size:13.5px;font-weight:600;color:var(--muted)}
+
+/* The nav Buy pill is desktop only. On a phone the logo plus five nav items need about
+   377px of a 342px row at 390 wide, and narrower phones are worse: forcing them on one line
+   scrolls the page sideways, and letting the nav wrap makes a sticky header three rows tall.
+   Nothing is lost on a phone, where the hero Buy button sits above the fold and the pricing
+   section carries another. */
+@media (max-width:620px){ .nav-buy{display:none} }
