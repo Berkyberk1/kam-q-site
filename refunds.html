@@ -43,8 +43,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top"><div class="wrap">
-<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a><a class="nav-buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="nav">Buy</a></nav>
+<a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Demo</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
+<button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+</button>
 </div></header>
 <main id="main">
 
@@ -89,9 +93,36 @@
     if (go) { window.setTimeout(once, NAV_MS); }
   }
 
+  // Best-effort device hint, not a compatibility check. Added 7 November 2026 so a
+  // Windows visitor taking the Mac file is visible in the numbers, which the audit
+  // asked for. Computed once per page rather than per click.
+  var OS = (function () {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  })();
+
   function props(el) {
+    var p = {};
     var where = el.getAttribute('data-ev-where');
-    return where ? { location: where } : {};
+    if (where) { p.location = where; }
+    // Only on downloads. Adding it everywhere would change the shape of events that
+    // already have history behind them.
+    var name = el.getAttribute('data-ev') || '';
+    if (name.indexOf('Download') === 0) { p.os = OS; }
+    return p;
   }
 
   document.addEventListener('click', function (e) {
@@ -159,5 +190,6 @@
   window.addEventListener('orientationchange', sync);
 })();
 </script>
+
 </body>
 </html>

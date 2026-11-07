@@ -41,16 +41,29 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="promo"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. <span class="ends">Ends 31 December 2026.</span></div>
+<div class="promo"><span class="long"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. Offer ends December 31, 2026.</span><span class="short"><b>First year $24.99</b> with code <code>FIRSTYEAR</code></span></div>
 <header class="top"><div class="wrap">
-<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a><a class="nav-buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="nav">Buy</a></nav>
+<a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Demo</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
+<button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+</button>
 </div></header>
 <main id="main">
 
 <div class="doc" style="max-width:960px">
 <h1>Download KAM-Q</h1>
 <p class="lead">Here is what is available today and what is on the way. Every version is free for 7 days, and one license covers all of them.</p>
+<!-- Audit item 17 and roadmap item 5: the single most common wrong purchase is somebody on
+     the new Outlook buying the desktop app. Saying so before the download buttons is
+     cheaper than refunding it afterwards. -->
+<div class="note compat" style="margin:0 0 26px">
+<b>Check this first.</b> The Windows and Mac apps work with <b>classic Outlook</b>, not the new
+Outlook. If you are on the new Outlook, or you are reading this on a phone, use the
+<a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="download-top">browser version</a>, which
+works with any Microsoft 365, Outlook.com or Gmail account and needs nothing installed.
+</div>
 <!-- This used to be one sentence with "Buy KAM-Q" as a text link inside it. Every path to
      paying on this page was text while every path to downloading was a solid button, so the
      page rendered the free action in its strongest typography and the paid one in its
@@ -62,7 +75,7 @@
 <div><b>Already know you want it?</b> One license covers four installations across Windows and Mac. Paste the key into whichever app you are using.</div>
 <a class="btn buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="download-top">Buy KAM-Q</a>
 </div>
-<figure class="shot" style="margin:28px 0"><img src="assets/shot-people.png" alt="The KAM-Q People view, with a search box for finding a file among that person&#39;s attachments" loading="lazy" width="1600" height="1093"><figcaption>The People view, included in every version. Search inside one person&#39;s attachments to find a file.</figcaption></figure>
+<figure class="shot" style="margin:28px 0"><img src="assets/shot-people.webp" alt="The KAM-Q People view, with a search box for finding a file among that person&#39;s attachments" loading="lazy" width="1600" height="1093"><figcaption>The People view, included in every version. Search inside one person&#39;s attachments to find a file.</figcaption></figure>
 <div class="grid g2" style="margin-top:28px">
 <div class="card"><span class="badge">Available now</span><h3>Windows</h3>
 <p>For classic Outlook on Windows 10 or 11. Free for 7 days. First year $39.99, or $24.99 with code FIRSTYEAR, then $19.99 a year. The installer needs no administrator rights.</p>
@@ -144,9 +157,36 @@
     if (go) { window.setTimeout(once, NAV_MS); }
   }
 
+  // Best-effort device hint, not a compatibility check. Added 7 November 2026 so a
+  // Windows visitor taking the Mac file is visible in the numbers, which the audit
+  // asked for. Computed once per page rather than per click.
+  var OS = (function () {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  })();
+
   function props(el) {
+    var p = {};
     var where = el.getAttribute('data-ev-where');
-    return where ? { location: where } : {};
+    if (where) { p.location = where; }
+    // Only on downloads. Adding it everywhere would change the shape of events that
+    // already have history behind them.
+    var name = el.getAttribute('data-ev') || '';
+    if (name.indexOf('Download') === 0) { p.os = OS; }
+    return p;
   }
 
   document.addEventListener('click', function (e) {
@@ -214,5 +254,6 @@
   window.addEventListener('orientationchange', sync);
 })();
 </script>
+
 </body>
 </html>

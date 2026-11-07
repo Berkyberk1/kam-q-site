@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KAM-Q: find any email, person, or file in an instant</title>
-<meta name="description" content="KAM-Q builds a private search index of your mailbox on your own computer. Instant search, a People view, and a searchable list of every file a person sent.">
+<title>KAM-Q: find the email, get back to work</title>
+<meta name="description" content="Search your mail by who sent it, what it was about, or the name of the file attached. Private search for Outlook, Apple Mail and your browser. Free 7 day trial.">
 
 <link rel="canonical" href="https://kam-q.com/">
 <script>
@@ -26,8 +26,8 @@
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-<meta property="og:title" content="KAM-Q: find any email, person, or file in an instant">
-<meta property="og:description" content="KAM-Q builds a private search index of your mailbox on your own computer. Instant search, a People view, and a searchable list of every file a person sent.">
+<meta property="og:title" content="KAM-Q: find the email, get back to work">
+<meta property="og:description" content="Search your mail by who sent it, what it was about, or the name of the file attached. Private search for Outlook, Apple Mail and your browser. Free 7 day trial.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kam-q.com/">
 <meta property="og:site_name" content="KAM-Q">
@@ -66,131 +66,361 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="promo"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. <span class="ends">Ends 31 December 2026.</span></div>
+<div class="promo"><span class="long"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. Offer ends December 31, 2026.</span><span class="short"><b>First year $24.99</b> with code <code>FIRSTYEAR</code></span></div>
 <header class="top"><div class="wrap">
-<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a><a class="nav-buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="nav">Buy</a></nav>
+<a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Demo</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
+<button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+</button>
 </div></header>
 <main id="main">
 
-<section class="hero"><div class="wrap">
+<section class="hero home-hero"><div class="wrap">
 <div>
-<h1>Find any email, person, or file in an instant.</h1>
-<p class="lead">KAM-Q&trade; builds a search index of your mailbox on your own computer. Results appear as you type, you see who emails you most and when, and every file they have ever sent is one click away.</p>
-<!-- Two sets of buttons, one for each kind of visitor.
-     On a desktop the Windows installer is the thing to offer first. On a phone it is a
-     dead end: the MSI downloads and then sits there, because it installs on a Windows
-     computer and nothing else. So the phone gets the two things it can actually do, watch
-     the recording and open the demo, and a line of print that says where the apps run and
-     links to the download page for anyone who wants it anyway. -->
+<p class="eyebrow">Private email search &middot; Windows, Mac and browser</p>
+<h1>Find the email. Get back to work.</h1>
+<p class="lead">Search your mail by who sent it, what it was about, or the name of the file
+attached, and have the answer before you have finished typing.</p>
 <div class="cta">
-<a class="btn d-only" href="downloads/KAM-Q-2.0.3.msi" data-ev="Download Windows" data-ev-where="home-hero">Download for Windows</a>
-<a class="btn m-only" href="#see-it-work">Watch the 60 second demo</a>
-<a class="btn buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="home-hero">Buy now</a>
-<a class="btn ghost" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-hero">Try the demo</a>
+<a class="btn d-only" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-hero">Start my free 7 day trial</a>
+<a class="btn m-only" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-hero">Open KAM-Q on this phone</a>
+<a class="btn ghost" href="#try-it" data-ev="Trial CTA Click" data-ev-where="home-hero-sample">Try a sample search</a>
 </div>
-<p class="fine d-only"><b>Free for 7 days, no card.</b> First year $39.99, or $24.99 with code FIRSTYEAR. Renews at $19.99 a year. Version 2.0.3, 434 KB, for Windows 10 or 11 with classic Outlook. <a href="download.html">Mac and browser versions</a>.</p>
-<p class="fine m-only"><b>Free for 7 days, no card.</b> First year $39.99, or $24.99 with code FIRSTYEAR. Renews at $19.99 a year. The demo runs here in your browser. The Windows and Mac apps install on a desktop or laptop computer, not on a phone, so open <a href="download.html">the download page</a> on the computer you want to search mail on.</p>
+<p class="fine d-only"><b>No credit card.</b> 30 day refund. Classic Outlook on Windows and Mac,
+Apple Mail, or any Microsoft 365, Outlook.com or Gmail account in your browser.</p>
+<p class="fine m-only"><b>It runs right here, in this browser.</b> Sign in to Microsoft 365,
+Outlook.com or Gmail and search your own mail, with nothing to install. No credit card, 30 day
+refund. The Windows and Mac apps are separate and install on a computer:
+<a href="download.html" data-ev="Trial CTA Click" data-ev-where="home-hero-phone">see those</a>.</p>
 </div>
 <div class="hero-art">
-<!-- The animation is an MP4 rather than a GIF. The original GIF was 2.7MB; this is 60KB for
-     the same 3.6 seconds, and the hero is the one place on the site where weight is felt. -->
-<video class="motion" autoplay muted loop playsinline poster="assets/mascot-poster.png"
-       width="720" height="364" aria-label="KAM-Q mascot: an envelope in a red KAM headband kicking a magnifying-glass Q">
-<source src="assets/mascot.mp4" type="video/mp4">
-<img src="assets/mascot.svg" alt="KAM-Q mascot: an envelope in a red KAM headband kicking a magnifying-glass Q">
-</video>
-<img class="still" src="assets/mascot-poster.png" width="720" height="364" alt="KAM-Q mascot: an envelope in a red KAM headband kicking a magnifying-glass Q">
-<p class="quip">That email from 2018? Found it.</p>
+<figure class="shot hero-shot">
+<img src="assets/shot-search.webp" width="1600" height="1025" fetchpriority="high"
+     alt="KAM-Q search results appearing as the user types, on a mailbox of more than 400,000 messages">
+<figcaption>A real window on a real mailbox. The counter at the bottom is reading 406,436 messages.</figcaption>
+</figure>
 </div>
 </div></section>
 
-<section id="features"><div class="wrap">
-<h2>Search that keeps up with you</h2>
-<p class="sub">Built for people who live in email and need an answer in seconds, not minutes.</p>
-<div class="grid g3">
-<div class="card"><h3>Instant search</h3><p>Type any part of a subject, a name, an address, a folder, or an attachment name. Words can be in any order. Results filter as fast as you type.</p></div>
-<div class="card"><h3>People, at a glance</h3><p>See who emails you most, when each person usually writes, how often, and when you last heard from them. Automated senders are filtered out.</p></div>
-<div class="card"><h3>Every file, by person</h3><p>One list of every attachment someone has sent you, newest first. Search inside that list by file name or by the subject it arrived with, then open the file, or the email it came in, with a click.</p></div>
-</div></div></section>
-
-<section class="alt"><div class="wrap">
-<h2>Private by design</h2>
-<p class="sub">Your mail is yours. KAM-Q is built so it never has to leave your computer.</p>
-<ul class="checks">
-<li><b>Local index.</b> On Windows and Mac, KAM-Q reads your mail through Outlook or Apple Mail on your own computer and keeps its index there.</li>
-<li><b>No KAM-Q servers.</b> The web version talks straight from your browser to Microsoft or Google. Your mail does not pass through us.</li>
-<li><b>Read-only for Outlook.</b> The Outlook versions only read. They never send, move, or delete mail.</li>
-<li><b>Gmail Cleanup is careful.</b> Cleanup moves a sender's old mail to Trash, only when you ask, with an Undo button. KAM-Q never deletes anything permanently.</li>
+<!-- Proof strip. Audit item 05, rated Very High. -->
+<section class="proofstrip"><div class="wrap">
+<ul>
+<li><b>7 days free</b><span>No card to start</span></li>
+<li><b>Private</b><span>Your mail stays on your device</span></li>
+<li><b>Four installations</b><span>One license covers them all</span></li>
+<li><b>30 day refund</b><span>Any reason</span></li>
 </ul>
 </div></section>
 
+<!-- Audit item 06. Name the problem before naming the feature. Each card maps to the
+     feature of the same order below it. -->
 <section><div class="wrap">
+<h2>Your inbox has the answer. Finding it should not be the hard part.</h2>
+<div class="grid g3 problems">
+<div class="card"><h3>You know it exists</h3><p>You remember the message. You remember roughly
+when. Outlook returns three hundred results and none of them is the one.</p></div>
+<div class="card"><h3>You remember the person, not the subject</h3><p>You know who sent it.
+That is the one thing mailbox search is worst at using.</p></div>
+<div class="card"><h3>You need the file, not the email</h3><p>Someone sent it. You have no idea
+which thread it arrived in, and the file name is half remembered.</p></div>
+</div>
+</div></section>
+
+<!-- Audit item 07. A working sample search on the page itself, so a visitor who will never
+     install anything still sees what the product does. Sample data only, stated plainly.
+     No typed text is ever recorded: the tracking fires one interaction event with no value.
+     See the sample-search script at the foot of this page. -->
+<section class="alt" id="try-it"><div class="wrap">
+<h2>Know what you need. Find it in a few keystrokes.</h2>
+<p class="sub">This runs here on the page, on made up mail. It cannot see your mailbox and
+there is nothing to sign in to.</p>
+
+<div class="sample">
+<div class="sample-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="sample-title">Sample mailbox &middot; 2,000 messages</span></div>
+<div class="sample-body">
+<div class="sample-search">
+<label class="vh" for="sq">Search the sample mailbox</label>
+<input id="sq" type="search" autocomplete="off" spellcheck="false"
+       placeholder="Try invoice, proposal, Dana, or .pdf">
+<button type="button" id="sclear" class="btn ghost sm">Clear</button>
+</div>
+<div class="sample-tabs" role="tablist" aria-label="What to search">
+<button class="stab" role="tab" aria-selected="true" aria-controls="srows" id="st-all" data-view="all">Search</button>
+<button class="stab" role="tab" aria-selected="false" aria-controls="srows" id="st-people" data-view="people">People</button>
+<button class="stab" role="tab" aria-selected="false" aria-controls="srows" id="st-files" data-view="files">Attachments</button>
+</div>
+<p class="sample-count" id="scount"></p>
+<ul class="sample-rows" id="srows" role="tabpanel" aria-labelledby="st-all"></ul>
+<p class="sample-note">Sample data, invented for this page. The real thing searches your own
+mailbox and keeps its index on your device.</p>
+</div>
+</div>
+
+<p class="sub" style="margin-top:22px">That is the sample. To do it on your own mail,
+<a href="download.html" data-ev="Trial CTA Click" data-ev-where="home-sample">start the free trial</a>,
+or <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-sample">open KAM-Q in your browser</a>
+and sign in to your own account.</p>
+</div></section>
+
+<section id="features"><div class="wrap">
+<h2>The right information, right when you need it</h2>
+<p class="sub">Three things mailbox search does badly, done properly.</p>
+
+<div class="feature">
+<div>
+<p class="fnum">01</p>
+<h3>Stop scrolling through results</h3>
+<p>Type any part of a subject, a name, an address, a folder or an attachment name, in any
+order. Results filter as fast as you type. Combine terms with AND, OR and NOT when you need
+to be exact.</p>
+<p class="fine"><a href="#see-it-work">Watch search in action</a></p>
+</div>
+<figure class="shot"><img src="assets/shot-search.webp" loading="lazy" width="1600" height="1025"
+ alt="KAM-Q search results narrowing as the user types"><figcaption>Results narrow with each
+ keystroke. Nothing is sent anywhere to make that happen.</figcaption></figure>
+</div>
+
+<div class="feature rev">
+<div>
+<p class="fnum">02</p>
+<h3>Find it by who sent it</h3>
+<p>People ranks everyone who writes to you, shows when each person usually writes and how
+often, and when you last heard from them. Automated senders are filtered out. It is the view
+that answers "it was from Dana, sometime in the spring".</p>
+</div>
+<figure class="shot"><img src="assets/shot-people.webp" loading="lazy" width="1600" height="1093"
+ alt="The KAM-Q People view, with senders ranked by how often they write and a search box for
+ finding a file among one person's attachments"><figcaption>Every sender, ranked, with the
+ files they have sent and a box to search inside them.</figcaption></figure>
+</div>
+
+<div class="feature">
+<div>
+<p class="fnum">03</p>
+<h3>Get the file without finding the email first</h3>
+<p>One list of every attachment a person has sent you, newest first. Search that list by file
+name or by the subject it arrived with, then open the file, or open the email it came in.</p>
+<p class="fine">KAM-Q finds attachments by their file name and by the message they arrived
+with. It does not read the text inside the file.</p>
+</div>
+<figure class="shot"><img src="assets/shot-mac-search.webp" loading="lazy" width="1600" height="1025"
+ alt="KAM-Q for Apple Mail searching a mailbox on a Mac"><figcaption>The same on a Mac. There
+ is a separate app for Apple Mail.</figcaption></figure>
+</div>
+</div></section>
+
+<!-- Audit item 09. Video moved up to directly after the features, on a dark band, with the
+     browser version offered beside it. preload="none" keeps the 6.5MB off first load. -->
+<section class="dark" id="see-it-work"><div class="wrap">
+<h2>See the difference</h2>
+<p class="sub">A minute, start to finish. Search, the People view, and opening a file someone
+sent. Watch for how fast results appear, how People ranks senders, and how a file opens
+without hunting for its email first.</p>
+<figure class="shot demo-video">
+<video controls preload="none" playsinline poster="assets/kamq-demo-poster.jpg"
+       data-ev="Demo Video Play" data-ev-where="home" width="1920" height="1080">
+<source src="assets/kamq-demo.mp4" type="video/mp4">
+Your browser cannot play this video. The screenshots above show the same thing.
+</video>
+<figcaption>Recorded on a demonstration copy with invented mail. The names and subjects are
+made up. The message counts are real.</figcaption>
+</figure>
+<div class="cta" style="margin-top:22px">
+<a class="btn onDark" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-video">Open KAM-Q in your browser</a>
+<a class="btn ghost onDark" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-video">Download the app</a>
+</div>
+<p class="fine onDark">The browser version is the full product, not a recording. It signs in to
+your own Microsoft 365, Outlook.com or Gmail account and works on a phone.</p>
+</div></section>
+
+<section class="alt"><div class="wrap">
 <h2>How it works</h2>
 <p class="sub">Three steps, and most of it happens in the background.</p>
 <ol class="steps">
-<li><b>Connect</b><span>Pick the folders you want to search. Your Inbox and its subfolders are chosen for you.</span></li>
-<li><b>Let it index</b><span>KAM-Q reads your newest mail first, in batches. You can search within minutes while older mail keeps loading.</span></li>
-<li><b>Search and explore</b><span>Find messages, open the People view, and pull up the files a person has sent, searching that list by name or subject.</span></li>
+<li><b>Download and connect</b><span>Install the app and pick the folders you want to search.
+Your Inbox and its subfolders are chosen for you. In the browser there is nothing to install:
+you sign in and go.</span></li>
+<li><b>Let it index</b><span>KAM-Q reads your newest mail first, in batches, so you can search
+within minutes while older mail keeps loading.</span></li>
+<li><b>Search and explore</b><span>Find messages, open the People view, and pull up the files a
+person has sent, searching that list by name or subject.</span></li>
 </ol>
 </div></section>
 
-<section class="alt"><div class="wrap">
-<h2>See it work</h2>
-<p class="sub">A minute, start to finish. Search, the People view, and opening a file someone sent.</p>
-<!-- Not autoplayed. It has sound and runs a minute, so it starts when somebody asks for it.
-     preload="none" means the 6.4MB costs nothing until they press play. -->
-<figure class="shot demo-video" id="see-it-work">
-<video controls preload="none" playsinline poster="assets/kamq-demo-poster.jpg"
-       data-ev="Demo Video Play" data-ev-where="home"
-       width="1920" height="1080">
-<source src="assets/kamq-demo.mp4" type="video/mp4">
-Your browser cannot play this video. The screenshots below show the same thing.
-</video>
-<figcaption>Recorded on a demonstration copy with invented mail. The names and subjects are made up; the message counts are real.</figcaption>
-</figure>
-
-<h2 style="margin-top:48px">What it looks like</h2>
-<p class="sub">Real windows on a real mailbox. The names and subjects have been replaced, the counts have not.</p>
-<figure class="shot"><img src="assets/shot-search.png" alt="KAM-Q search results on a mailbox of over 400,000 messages" loading="lazy" width="1600" height="1025">
-<figcaption>Results appear as you type. The line at the bottom is counting 406,436 messages.</figcaption></figure>
-<div class="grid g2" style="margin-top:28px">
-<figure class="shot"><img src="assets/shot-people.png" alt="The KAM-Q People view, showing senders ranked by how often they write, with a search box for finding a file among that person&#39;s attachments" loading="lazy" width="1600" height="1093">
-<figcaption>People ranks everyone who writes to you, when they write, and every file they have sent. Search inside one person&#39;s files to find the one you want.</figcaption></figure>
-<figure class="shot"><img src="assets/shot-mac-search.png" alt="KAM-Q for Apple Mail searching a mailbox" loading="lazy" width="1600" height="1025">
-<figcaption>The same thing on a Mac. There is a separate app for Apple Mail.</figcaption></figure>
-</div>
+<!-- Audit item 10. Dark band restored: David's own mock measured 1.21:1 and 1.24:1 here,
+     white text on pale blue. This is white on navy and measures above 14:1. -->
+<section class="dark privacy-band"><div class="wrap">
+<h2>Your inbox is private. Your search should be too.</h2>
+<p class="sub">This is the part worth reading properly, because it is the thing most search
+tools get wrong.</p>
+<ul class="checks">
+<li><b>The index stays on your device.</b> On Windows and Mac, KAM-Q reads your mail through
+Outlook or Apple Mail on your own computer and keeps its index in your own user folder. In the
+browser it is kept in your browser.</li>
+<li><b>No KAM-Q server receives your mail.</b> The browser version talks straight from your
+browser to Microsoft or Google. Your mail does not pass through us.</li>
+<li><b>Read-only for Outlook.</b> The Outlook versions only read. They never send, move or
+delete a message. That is a fixed boundary, not a setting.</li>
+<li><b>Sign-in happens on Microsoft's and Google's own pages.</b> KAM-Q never sees your
+password.</li>
+<li><b>Gmail Cleanup is optional and careful.</b> It moves a sender's old mail to Trash, only
+when you ask, with an Undo button. It is off unless you turn it on.</li>
+<li><b>Signed software.</b> The Windows installer is signed by PRB Interactive Inc. The Mac
+apps are signed and notarized by Apple.</li>
+</ul>
+<p class="fine onDark">To be precise about what this does not claim: the apps do make network
+connections, for license checks and update checks. They do not send your mail or your searches.
+The <a href="privacy.html">privacy policy</a> sets out exactly what goes where.</p>
 </div></section>
 
-<section class="alt"><div class="wrap">
-<h2>Works where you do</h2>
-<p class="sub">One product, several ways to use it.</p>
-<div class="grid g4">
-<div class="card"><span class="badge">Available now</span><h3>Windows</h3><p>For classic Outlook. Installs without administrator rights and is digitally signed by PRB Interactive Inc.</p></div>
-<div class="card"><span class="badge">Available now</span><h3>Mac</h3><p>Two apps, one for classic Outlook for Mac and one for Apple Mail. The Apple Mail version searches every account you have set up in Mail, including Gmail, iCloud, Yahoo, and AOL. Both signed and notarized by Apple.</p></div>
-<div class="card"><span class="badge">Demo available</span><h3>Web</h3><p>Microsoft 365, Outlook.com, and Gmail, right in your browser.</p></div>
-<div class="card"><span class="badge soon">Coming soon</span><h3>Gmail add-on</h3><p>Search and People inside the Gmail sidebar.</p></div>
-</div>
-<p class="sub" style="margin-top:24px"><a href="download.html">See download options and requirements</a></p>
-</div></section>
-
+<!-- Audit item 12. Three available products, each with its own action. The Coming soon card
+     has moved to the download page so it stops competing with things people can have today. -->
 <section><div class="wrap">
-<h2>Simple pricing</h2>
-<p class="sub">Try it free for 7 days. First year $39.99, or <b>$24.99 with code FIRSTYEAR</b>. Renews at $19.99 a year.</p>
-<p class="sub"><b>KAM-Q stays yours.</b> Stop renewing and you can still open it and search everything it has already indexed, for as long as you like. What a subscription pays for is keeping the index up to date with new mail, and new versions as they come. One license covers four installations, so your laptop and desktop are both covered, and we refund any purchase within 30 days for any reason.</p>
-<div class="cta"><a class="btn" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="home-pricing">Buy KAM-Q</a><a class="btn ghost" href="download.html">Download and try free</a></div>
+<h2>Works where you do</h2>
+<p class="sub">One license, three ways to use it. Pick the one that matches the device you are
+holding.</p>
+<p class="youare" id="youare" hidden></p>
+<div class="grid g3 platforms">
+<div class="card" id="plat-win"><h3>Windows</h3>
+<p class="works">Windows 10 or 11, classic Outlook</p>
+<p>Installs without administrator rights. Digitally signed by PRB Interactive Inc.</p>
+<p class="cardact"><a class="btn sm" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-platform-win">Download for Windows</a></p>
+</div>
+<div class="card" id="plat-mac"><h3>Mac</h3>
+<p class="works">macOS, classic Outlook for Mac or Apple Mail</p>
+<p>Two apps, one license. The Apple Mail version covers every account set up in Mail, including
+Gmail, iCloud, Yahoo and AOL.</p>
+<p class="cardact"><a class="btn sm" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-platform-mac">Download for Mac</a></p>
+</div>
+<div class="card" id="plat-web"><h3>Browser</h3>
+<p class="works">Phone, tablet or computer</p>
+<p>Sign in to Microsoft 365, Outlook.com or Gmail and search your real mail. Nothing to install.
+Add it to your home screen and it opens like an app.</p>
+<p class="cardact"><a class="btn sm" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-platform-web">Open in your browser</a></p>
+</div>
+</div>
+<p class="note compat"><b>Before you download.</b> The Windows and Mac apps work with
+<b>classic Outlook</b>, not the new Outlook. If you are on the new Outlook, use the browser
+version, which works with any Microsoft 365 or Outlook.com account.
+<a href="download.html">Full requirements</a>.</p>
 </div></section>
 
+<!-- Audit item 13. Six rows, taken from why-kam-q.html so the two pages cannot drift. -->
+<section class="alt"><div class="wrap">
+<h2>How it compares</h2>
+<p class="sub">The short version. The long version, including where the others are better, is
+on <a href="why-kam-q.html">Why KAM-Q</a>.</p>
+<div class="tablewrap">
+<table class="compare">
+<caption class="vh">KAM-Q compared with X1 Search and Lookeen</caption>
+<thead><tr><th scope="col">&nbsp;</th><th scope="col">KAM-Q</th><th scope="col">X1 Search</th><th scope="col">Lookeen</th></tr></thead>
+<tbody>
+<tr><th scope="row">Price a year</th><td>$24.99 first year, then $19.99</td><td>$79</td><td>$108 to $300</td></tr>
+<tr><th scope="row">Installations per license</th><td>Four</td><td>One</td><td>One</td></tr>
+<tr><th scope="row">Mac</th><td>Yes, Outlook and Apple Mail</td><td>No</td><td>No</td></tr>
+<tr><th scope="row">Browser and phone</th><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><th scope="row">Ranked view of who emails you</th><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><th scope="row">Search still works after you stop paying</th><td>Yes, on mail already indexed</td><td>No</td><td>No</td></tr>
+</tbody>
+</table>
+</div>
+<p class="fine">Competitor prices taken from each vendor's own pricing page on 17 October 2026, the
+same check behind the <a href="why-kam-q.html">full comparison</a>, and not re-checked since:
+<a href="https://www.x1.com/pricing/" rel="nofollow noopener">X1</a> and
+<a href="https://www.lookeen.com/pricing" rel="nofollow noopener">Lookeen</a>. Prices change;
+check before you decide. <b>Where they are better:</b> X1 and Lookeen read the text inside
+documents, which KAM-Q does not, and both run as a panel inside Outlook rather than in their own
+window. <a href="why-kam-q.html">The full comparison</a>.</p>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+<h2>Professional search. Simple pricing.</h2>
+<div class="pricegrid">
+<div class="card pricecard">
+<p class="pricerow"><span class="now">$24.99</span><span class="was">$39.99</span><span class="save">Save $15</span></p>
+<p class="perline">for your first year, then $19.99 a year</p>
+<p class="fine">Use code <code>FIRSTYEAR</code> at checkout. Cancel any time. Offer ends December 31, 2026.</p>
+<ul class="ticks">
+<li>7 day free trial, no card</li>
+<li>One license, four installations</li>
+<li>Windows, Mac and browser</li>
+<li>Updates included while active</li>
+<li>30 day money back guarantee</li>
+</ul>
+<p class="cardact"><a class="btn big" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-pricing">Start my free 7 day trial</a></p>
+<p class="fine buyline">Ready now? <a href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="home-pricing">Buy KAM-Q with the offer applied</a>.</p>
+</div>
+<div class="card">
+<h3>What happens if you stop paying</h3>
+<p>KAM-Q stays yours. Stop renewing and you can still open it and search everything it has
+already indexed, for as long as you like. What the subscription pays for is keeping the index up
+to date with new mail, and new versions as they come.</p>
+<h3 style="margin-top:22px">Buying for a team</h3>
+<p>Team pricing starts at two people: $21 per person per year for 2 to 19, $18 for 20 to 59, and
+a conversation above that. One key for everyone, one invoice, purchase orders accepted, no setup
+fee.</p>
+<p class="cardact"><a class="btn ghost sm" href="support.html#teams" data-ev="Team Quote" data-ev-where="home-pricing">See team pricing</a>
+<a class="btn ghost sm" href="mailto:support@kam-q.com?subject=KAM-Q%20team%20pricing" data-ev="Team Quote" data-ev-where="home-pricing-email">Ask for a quote</a></p>
+</div>
+</div>
+</div></section>
+
+<!-- Audit item 15. Cut from nine questions to six. The three removed (comparison, slow
+     Outlook, who makes it) moved to support.html, except the maker note, which the audit
+     wants high on the page instead and which now sits below. -->
 <section class="alt"><div class="wrap">
 <h2>Questions</h2>
-<details><summary>Does KAM-Q send my mail anywhere?</summary><p>No. The Windows and Mac versions keep their index on your computer. The web version connects your browser directly to Microsoft or Google, and we run no server that sees your mail. Read the full <a href="privacy.html">privacy policy</a>.</p></details>
-<details><summary>Does it change or delete my email?</summary><p>The Outlook versions only read your mail. In Gmail, the optional Cleanup feature moves a sender's old mail to Trash when you ask, and you can undo it. KAM-Q never deletes anything permanently.</p></details>
-<details><summary>Which Outlook does it work with?</summary><p>Classic Outlook for Windows and classic Outlook for Mac. The new Outlook is not supported yet. The web version works with any Microsoft 365, Outlook.com, or Gmail account.</p></details>
-<details><summary>I have a very large mailbox. Is that a problem?</summary><p>KAM-Q reads mail newest first and in batches, so you can search while it works. Very large mailboxes take longer to finish indexing, and you can choose which folders to include.</p></details>
-<details><summary>How does KAM-Q compare with other search tools?</summary><p>Start with <a href="why-kam-q.html">Why KAM-Q</a>, which puts the three of us side by side and says plainly what KAM-Q does not do. The longer versions are <a href="kam-q-vs-x1-search.html">KAM-Q vs X1 Search</a> and <a href="kam-q-vs-lookeen.html">KAM-Q vs Lookeen</a>.</p></details>
-<details><summary>Why is Outlook search so slow?</summary><p>Usually because the Windows Search index is incomplete, or because your mailbox is larger than it was built for. We wrote up the fixes: <a href="outlook-search-slow.html">why Outlook search is slow or missing emails</a>, <a href="find-email-attachment.html">finding an attachment someone sent you</a>, and <a href="search-mail-on-mac.html">searching email on a Mac</a>.</p></details>
-<details><summary>Can I buy KAM-Q for my whole team?</summary><p>Yes. Team pricing starts at two users: $21 per user per year for 2 to 19, $18 for 20 to 59, and a conversation above that. One key for everyone, one invoice, purchase orders accepted, and no setup fee. We count heads at renewal, so a team that grows into the next tier moves down to it. <a href="support.html#teams">See the full team pricing</a>, or write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20team%20pricing">support@kam-q.com</a> with how many people you need to cover.</p></details>
-<details><summary>Who makes KAM-Q?</summary><p>PRB Interactive Inc., a Delaware corporation. Questions are welcome at <a href="mailto:support@kam-q.com">support@kam-q.com</a>.</p></details>
+<details><summary>Does KAM-Q send my mail anywhere?</summary><p>No. The Windows and Mac versions keep their index on your own computer. The browser version connects your browser straight to Microsoft or Google. We run no server that sees your mail. Full detail in the <a href="privacy.html">privacy policy</a>.</p></details>
+<details><summary>Which Outlook does it work with?</summary><p>The desktop apps need classic Outlook, on Windows or Mac. The new Outlook is not supported. The browser version works with any Microsoft 365, Outlook.com or Gmail account, whichever Outlook you use.</p></details>
+<details><summary>Does it change or delete my email?</summary><p>The Outlook versions only read. In Gmail, the optional Cleanup feature moves a sender's old mail to Trash when you ask, with an Undo button. KAM-Q never deletes anything permanently.</p></details>
+<details><summary>I have a very large mailbox. Is that a problem?</summary><p>No. KAM-Q reads mail newest first and in batches, so you can search within minutes while it works. A 400,000 message mailbox is a normal size for it. You can also choose which folders to include.</p></details>
+<details><summary>What happens if I cancel?</summary><p>Everything already indexed stays searchable, for as long as you like. New mail stops being added to the index, and you stop getting new versions. Refunds within 30 days, any reason.</p></details>
+<details><summary>Can I buy KAM-Q for my team?</summary><p>Yes, from two people up. $21 per person per year for 2 to 19, $18 for 20 to 59, and a conversation above that. One key, one invoice, purchase orders accepted, no setup fee. <a href="support.html#teams">Team pricing</a>.</p></details>
+<p class="sub" style="margin-top:20px">More answers on the <a href="support.html">support page</a>.</p>
+</div></section>
+
+<!-- Audit item 22. A real maker note instead of invented social proof. No testimonials, no
+     user counts, no star ratings, and no promise about reply times we have not measured. -->
+<section><div class="wrap">
+<div class="maker">
+<video class="motion" autoplay muted loop playsinline poster="assets/mascot-poster.png"
+       width="360" height="182"
+       aria-label="The KAM-Q mascot, an envelope in a red KAM headband kicking a magnifying glass Q">
+<source src="assets/mascot.mp4" type="video/mp4">
+<img src="assets/mascot.svg" width="360" height="182" loading="lazy"
+     alt="The KAM-Q mascot, an envelope in a red KAM headband kicking a magnifying glass Q">
+</video>
+<div>
+<h2>Made by one person, in New York</h2>
+<p>KAM-Q is built by Paul Berkson at PRB Interactive Inc., a Delaware corporation based in
+New York. It started because a 400,000 message mailbox made Outlook search useless and nothing
+on the market fixed it at a sensible price. If something is wrong, write to
+<a href="mailto:support@kam-q.com">support@kam-q.com</a> and you will hear back from him rather than from a queue.</p>
+</div>
+</div>
+</div></section>
+
+<!-- Audit item 16, rated Very High, and the single biggest gap: 250 of 300 visitors were on a
+     phone and the page ended without a next step for them. Two exits now: use it in the
+     browser right here, or send the desktop link to a computer.
+     The form shows success ONLY on a 2xx from the form service. See the script below. -->
+<section class="dark closing"><div class="wrap">
+<h2>Stop looking for emails.</h2>
+<p class="sub">Seven days free, no card. It takes about a minute to know whether it is for you.</p>
+<div class="cta" style="justify-content:center">
+<a class="btn onDark" href="download.html" data-ev="Trial CTA Click" data-ev-where="home-closing">Start my free 7 day trial</a>
+<a class="btn ghost onDark" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-closing">Use it in your browser</a>
+</div>
+
+<div class="sendlink" id="sendlink">
+<h3>On your phone? Get the download link on your computer.</h3>
+<p class="fine onDark">Open <b>kam-q.com/download</b> on the Windows or Mac computer you want to
+search mail on, or write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20download%20links">support@kam-q.com</a>
+and we will send the links. Meanwhile the browser version above works on the phone in your hand.</p>
+</div>
 </div></section>
 
 </main>
@@ -214,9 +444,36 @@ Your browser cannot play this video. The screenshots below show the same thing.
     if (go) { window.setTimeout(once, NAV_MS); }
   }
 
+  // Best-effort device hint, not a compatibility check. Added 7 November 2026 so a
+  // Windows visitor taking the Mac file is visible in the numbers, which the audit
+  // asked for. Computed once per page rather than per click.
+  var OS = (function () {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  })();
+
   function props(el) {
+    var p = {};
     var where = el.getAttribute('data-ev-where');
-    return where ? { location: where } : {};
+    if (where) { p.location = where; }
+    // Only on downloads. Adding it everywhere would change the shape of events that
+    // already have history behind them.
+    var name = el.getAttribute('data-ev') || '';
+    if (name.indexOf('Download') === 0) { p.os = OS; }
+    return p;
   }
 
   document.addEventListener('click', function (e) {
@@ -282,6 +539,307 @@ Your browser cannot play this video. The screenshots below show the same thing.
   }
   window.addEventListener('resize', sync);
   window.addEventListener('orientationchange', sync);
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+
+  /* ================================================================
+     Homepage behaviour and the measurement the audit asked for.
+     Added 7 November 2026. Tracking deliberately does NOT duplicate
+     anything in TRACK above: clicks and video plays are handled there,
+     this adds only Scroll 50, Video 50, Send Link Submit, the os
+     property on downloads, and the sample search interaction flag.
+     ================================================================ */
+
+  function ev(name, props) {
+    try { window.plausible(name, { props: props || {} }); } catch (e) { /* never break the page for a statistic */ }
+  }
+
+  /* Best-effort device hint, not a compatibility check. The audit's own
+     version ran the same test twice; this does not. */
+  function osName() {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var p = d.platform.toLowerCase();
+        if (p.indexOf('win') === 0) { return 'windows'; }
+        if (p.indexOf('mac') === 0) { return 'mac'; }
+        if (p.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  }
+
+  /* ---- mobile menu (audit 03) ---- */
+  (function () {
+    var btn = document.getElementById('navtoggle');
+    var nav = document.getElementById('sitenav');
+    if (!btn || !nav) { return; }
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target && e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  })();
+
+  /* ---- Scroll 50 (audit 06, tracking 03). Once per page view. ---- */
+  (function () {
+    var sent = false;
+    function check() {
+      if (sent) { return; }
+      var h = document.documentElement;
+      var total = Math.max(h.scrollHeight - window.innerHeight, 1);
+      if ((window.scrollY || h.scrollTop) / total >= 0.5) {
+        sent = true;
+        window.removeEventListener('scroll', check);
+        ev('Scroll 50', { page: '/' });
+      }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
+
+  /* ---- Video 50. Halfway, not completion, and once. ---- */
+  (function () {
+    var v = document.querySelector('video[data-ev="Demo Video Play"]');
+    if (!v) { return; }
+    var sent = false;
+    v.addEventListener('timeupdate', function () {
+      if (sent || !v.duration || !isFinite(v.duration)) { return; }
+      if (v.currentTime / v.duration >= 0.5) { sent = true; ev('Video 50', { location: 'home' }); }
+    });
+  })();
+
+  /* ---- which platform card leads --------------------------------
+     Reorders, never hides. A Windows visitor who wants the browser
+     version can still see and click it. */
+  (function () {
+    var os = osName(), map = { windows: 'plat-win', mac: 'plat-mac', ios: 'plat-web', android: 'plat-web' };
+    var labels = {
+      windows: 'You are on Windows',
+      mac: 'You are on a Mac',
+      ios: 'You are on a phone, so the browser version is the one for you',
+      android: 'You are on a phone, so the browser version is the one for you'
+    };
+    var id = map[os];
+    if (!id) { return; }
+    var card = document.getElementById(id), note = document.getElementById('youare');
+    if (!card || !note) { return; }
+    card.classList.add('you');
+    card.parentNode.insertBefore(card, card.parentNode.firstChild);
+    note.textContent = labels[os];
+    note.hidden = false;
+  })();
+
+  /* ================= sample search (audit 07) ====================
+     Invented data, generated here. PRIVACY: what the visitor types is
+     never read by analytics. One flag event fires on first use with no
+     value attached, and nothing else. */
+  (function () {
+    var qEl = document.getElementById('sq');
+    if (!qEl) { return; }
+    var rowsEl = document.getElementById('srows');
+    var countEl = document.getElementById('scount');
+    var clearEl = document.getElementById('sclear');
+
+    var PEOPLE = ['Dana Avery', 'Marcus Chen', 'Grace Harper', 'Samuel Kim', 'Luis Rivera',
+                  'Nina Patel', 'Mason Reed', 'Elena Novak', 'Priya Shah', 'David Okafor',
+                  'Claire Dubois', 'Nora Blake'];
+    var SUBJECTS = ['Invoice 4649, payment received', 'Revised proposal for Solstice',
+                    'Monthly report', 'Purchase order 4926', 'Q4 invoice summary',
+                    'Delivery confirmation 4793', 'Contract for signature', 'Budget review',
+                    'Meeting notes', 'Access request', 'Proposal: Atlas', 'Can we move Thursday?'];
+    var FILES = ['Solstice Proposal v2.pdf', 'Monthly Report.pdf', 'Q4 Invoice Summary.pdf',
+                 'Service Agreement.pdf', 'Budget Review.pdf', 'Invoice 4138.pdf',
+                 'PO 4928.pdf', 'Atlas Proposal.pdf', 'Meridian Proposal.pdf', 'Site Survey.xlsx'];
+    var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+    var DATA = [], seed = 7;
+    function rnd(n) { seed = (seed * 1103515245 + 12345) % 2147483648; return seed % n; }
+    for (var k = 0; k < 60; k++) {
+      DATA.push({
+        subject: SUBJECTS[(k * 5 + rnd(2)) % SUBJECTS.length],
+        person: PEOPLE[(k * 7 + rnd(2)) % PEOPLE.length],
+        file: rnd(10) > 3 ? FILES[(k * 3) % FILES.length] : '',
+        when: MONTHS[(k * 4) % MONTHS.length] + ' ' + (1 + rnd(27))
+      });
+    }
+
+    var view = 'all', used = false;
+
+    function esc(t) {
+      return String(t).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+    function hi(text, q) {
+      if (!q) { return esc(text); }
+      var i = text.toLowerCase().indexOf(q.toLowerCase());
+      if (i < 0) { return esc(text); }
+      return esc(text.slice(0, i)) + '<mark>' + esc(text.slice(i, i + q.length)) + '</mark>' +
+             esc(text.slice(i + q.length));
+    }
+
+    function render() {
+      var q = qEl.value.trim(), out = [], seen = {}, i, d;
+
+      if (view === 'people') {
+        for (i = 0; i < DATA.length; i++) {
+          d = DATA[i];
+          if (seen[d.person]) { continue; }
+          if (q && d.person.toLowerCase().indexOf(q.toLowerCase()) < 0) { continue; }
+          seen[d.person] = 1;
+          var n = 0;
+          for (var j = 0; j < DATA.length; j++) { if (DATA[j].person === d.person) { n++; } }
+          out.push([hi(d.person, q), n + (n === 1 ? ' message' : ' messages')]);
+        }
+      } else if (view === 'files') {
+        for (i = 0; i < DATA.length; i++) {
+          d = DATA[i];
+          if (!d.file) { continue; }
+          if (q && (d.file + ' ' + d.subject).toLowerCase().indexOf(q.toLowerCase()) < 0) { continue; }
+          out.push([hi(d.file, q), d.person + ' &middot; ' + d.when]);
+        }
+      } else {
+        for (i = 0; i < DATA.length; i++) {
+          d = DATA[i];
+          if (q && (d.subject + ' ' + d.person + ' ' + d.file).toLowerCase().indexOf(q.toLowerCase()) < 0) { continue; }
+          out.push([hi(d.subject, q), d.person + ' &middot; ' + d.when]);
+        }
+      }
+
+      var noun = view === 'people' ? 'people' : (view === 'files' ? 'attachments' : 'messages');
+      if (out.length === 1) { noun = noun.replace(/s$/, ''); }
+      countEl.textContent = out.length + ' ' + noun + (q ? ' matching what you typed' : '');
+
+      if (!out.length) {
+        rowsEl.innerHTML = '<li><span class="t">Nothing matched. Try <b>invoice</b>, ' +
+          '<b>proposal</b> or <b>Dana</b>.</span><span class="m"></span></li>';
+        return;
+      }
+      var html = '';
+      for (i = 0; i < Math.min(out.length, 8); i++) {
+        html += '<li><span class="t">' + out[i][0] + '</span><span class="m">' + out[i][1] + '</span></li>';
+      }
+      if (out.length > 8) {
+        html += '<li><span class="t" style="color:var(--muted)">and ' + (out.length - 8) +
+                ' more</span><span class="m"></span></li>';
+      }
+      rowsEl.innerHTML = html;
+    }
+
+    function touched() {
+      if (used) { return; }
+      used = true;
+      ev('Sample Search Used', {});   /* no value: the typed text is never sent */
+    }
+
+    qEl.addEventListener('input', function () { touched(); render(); });
+    clearEl.addEventListener('click', function () { qEl.value = ''; render(); qEl.focus(); });
+
+    var tabs = document.querySelectorAll('.stab');
+    for (var t = 0; t < tabs.length; t++) {
+      tabs[t].addEventListener('click', function () {
+        for (var x = 0; x < tabs.length; x++) { tabs[x].setAttribute('aria-selected', 'false'); }
+        this.setAttribute('aria-selected', 'true');
+        view = this.getAttribute('data-view');
+        rowsEl.setAttribute('aria-labelledby', this.id);
+        touched();
+        render();
+      });
+    }
+    render();
+  })();
+
+  /* ============== send the download link (audit 16) ==============
+     The brief is explicit: show success only after the email service
+     accepts the message. So success is shown on a 2xx response from the
+     form endpoint and on nothing else. A network failure, a non-2xx, or
+     an unconfigured endpoint all report failure in plain words, and the
+     Send Link Submit event fires only on the success branch.
+
+     The address is never put in the URL, never written to analytics and
+     never logged here. It is sent in the request body and nowhere else. */
+  (function () {
+    var form = document.getElementById('sendform');
+    if (!form) { return; }
+    var msg = document.getElementById('sendmsg');
+    var btn = document.getElementById('sendbtn');
+    var input = document.getElementById('sendemail');
+    var ENDPOINT = form.getAttribute('data-endpoint') || '';
+    var busy = false;
+
+    function say(state, text) { msg.dataset.state = state; msg.textContent = text; }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (busy) { return; }                       /* duplicate submit protection */
+
+      var email = (input.value || '').trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+        say('err', 'That does not look like an email address.');
+        input.focus();
+        return;
+      }
+      if (!ENDPOINT) {
+        say('err', 'This form is not connected yet. Email support@kam-q.com and we will send the links.');
+        return;
+      }
+
+      busy = true;
+      btn.disabled = true;
+      say('', 'Sending\u2026');
+
+      var done = false;
+      var timer = window.setTimeout(function () {
+        if (done) { return; }
+        done = true;
+        say('err', 'That took too long. Nothing was sent. Please try again.');
+        busy = false; btn.disabled = false;
+      }, 15000);
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, platform: osName(), source: 'home-closing' })
+      }).then(function (r) {
+        if (done) { return; }
+        done = true; window.clearTimeout(timer);
+        if (r.ok) {
+          ev('Send Link Submit', { location: 'home-closing' });   /* success branch only */
+          say('ok', 'Sent. Check ' + email + ' for the download links.');
+          form.reset();
+        } else {
+          say('err', 'That did not go through, so no email was sent. Please try again.');
+        }
+      }).catch(function () {
+        if (done) { return; }
+        done = true; window.clearTimeout(timer);
+        say('err', 'Could not reach the server, so no email was sent. Please try again.');
+      }).then(function () {
+        busy = false; btn.disabled = false;
+      });
+    });
+  })();
 })();
 </script>
 </body>

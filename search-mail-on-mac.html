@@ -43,8 +43,12 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top"><div class="wrap">
-<a href="/" aria-label="KAM-Q home"><img class="logo-light" src="assets/logo.png" alt="KAM-Q"><img class="logo-dark" src="assets/logo-dark.png" alt="KAM-Q"></a>
-<nav><a href="/#features">Features</a><a href="why-kam-q.html">Why KAM-Q</a><a href="download.html">Download</a><a href="support.html">Support</a><a class="nav-buy" href="https://kam-q.lemonsqueezy.com/checkout/buy/d6548869-0602-473a-8d7d-97cccf32d9f2?checkout%5Bdiscount_code%5D=FIRSTYEAR" data-ev="Checkout Click" data-ev-where="nav">Buy</a></nav>
+<a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Demo</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
+<button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
+<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+</button>
 </div></header>
 <main id="main">
 <div class="doc">
@@ -59,7 +63,16 @@ rebuilds them. Back the folder up first.</p>
 <p>Alternatively, in Mail choose <b>Mailbox</b>, then <b>Rebuild</b>, with a mailbox selected. That
 is slower but safer, and it only rebuilds the one mailbox.</p>
 
-<h2>Outlook for Mac</h2>
+<div class="note trybox">
+<b>Still cannot find it?</b>
+<p>KAM-Q searches your mailbox from its own index on your computer, by sender, subject or
+attachment name, and returns results as you type. Classic Outlook on Windows and Mac, Apple
+Mail, or any Microsoft 365, Outlook.com or Gmail account in your browser.</p>
+<p class="trybox-act"><a class="btn sm" href="download.html" data-ev="Trial CTA Click" data-ev-where="guide-top">Try it free for 7 days</a>
+<span class="fine">No card. 30 day refund.</span></p>
+<p class="fine m-only">Reading this on a phone? The <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="guide-top">browser version</a>
+works here. For the desktop app, open <b>kam-q.com/download</b> on your computer.</p>
+</div><h2>Outlook for Mac</h2>
 <p>Outlook for Mac relies on Spotlight. If search returns nothing at all, the usual cause is that
 Outlook's profile folder has been excluded from Spotlight. Open <b>System Settings</b>, then
 <b>Siri &amp; Spotlight</b>, then <b>Spotlight Privacy</b>, and remove any entry covering your home
@@ -75,9 +88,16 @@ KAM-Q reads your mail through Outlook or Apple Mail, keeps its index in your own
 not compete with everything else on the machine.</p>
 
 <hr style="margin:40px 0;border:0;border-top:1px solid #e5e7eb">
-<p><b>KAM-Q</b> builds a private search index of your mailbox on your own computer, so results
-appear as you type. It works with classic Outlook on Windows and Mac, and with Apple Mail.
-Your mail never leaves your machine. <a href="download.html">Try it free for 7 days</a>.</p>
+<div class="note trybox">
+<b>If none of that worked</b>
+<p>KAM-Q searches your mailbox from its own index on your computer, by sender, subject or
+attachment name, and returns results as you type. Classic Outlook on Windows and Mac, Apple
+Mail, or any Microsoft 365, Outlook.com or Gmail account in your browser.</p>
+<p class="trybox-act"><a class="btn sm" href="download.html" data-ev="Trial CTA Click" data-ev-where="guide-end">Try it free for 7 days</a>
+<span class="fine">No card. 30 day refund.</span></p>
+<p class="fine m-only">Reading this on a phone? The <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="guide-end">browser version</a>
+works here. For the desktop app, open <b>kam-q.com/download</b> on your computer.</p>
+</div>
 </div>
 </main>
 <footer><div class="wrap">
@@ -100,9 +120,36 @@ Your mail never leaves your machine. <a href="download.html">Try it free for 7 d
     if (go) { window.setTimeout(once, NAV_MS); }
   }
 
+  // Best-effort device hint, not a compatibility check. Added 7 November 2026 so a
+  // Windows visitor taking the Mac file is visible in the numbers, which the audit
+  // asked for. Computed once per page rather than per click.
+  var OS = (function () {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  })();
+
   function props(el) {
+    var p = {};
     var where = el.getAttribute('data-ev-where');
-    return where ? { location: where } : {};
+    if (where) { p.location = where; }
+    // Only on downloads. Adding it everywhere would change the shape of events that
+    // already have history behind them.
+    var name = el.getAttribute('data-ev') || '';
+    if (name.indexOf('Download') === 0) { p.os = OS; }
+    return p;
   }
 
   document.addEventListener('click', function (e) {
@@ -170,5 +217,6 @@ Your mail never leaves your machine. <a href="download.html">Try it free for 7 d
   window.addEventListener('orientationchange', sync);
 })();
 </script>
+
 </body>
 </html>
