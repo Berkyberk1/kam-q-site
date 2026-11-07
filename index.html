@@ -69,7 +69,7 @@
 <div class="promo"><span class="long"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. Offer ends December 31, 2026.</span><span class="short"><b>First year $24.99</b> with code <code>FIRSTYEAR</code></span></div>
 <header class="top"><div class="wrap">
 <a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
-<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Demo</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Try it</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
 <a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
 <button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
 <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
@@ -319,7 +319,7 @@ on <a href="why-kam-q.html">Why KAM-Q</a>.</p>
 <thead><tr><th scope="col">&nbsp;</th><th scope="col">KAM-Q</th><th scope="col">X1 Search</th><th scope="col">Lookeen</th></tr></thead>
 <tbody>
 <tr><th scope="row">Price a year</th><td>$24.99 first year, then $19.99</td><td>$79</td><td>$108 to $300</td></tr>
-<tr><th scope="row">Installations per license</th><td>Four</td><td>One</td><td>One</td></tr>
+<tr><th scope="row">Installations per license</th><td>Four</td><td>Not stated on their pricing page</td><td>Not stated on their pricing page</td></tr>
 <tr><th scope="row">Mac</th><td>Yes, Outlook and Apple Mail</td><td>No</td><td>No</td></tr>
 <tr><th scope="row">Browser and phone</th><td>Yes</td><td>No</td><td>No</td></tr>
 <tr><th scope="row">Ranked view of who emails you</th><td>Yes</td><td>No</td><td>No</td></tr>
@@ -327,13 +327,15 @@ on <a href="why-kam-q.html">Why KAM-Q</a>.</p>
 </tbody>
 </table>
 </div>
-<p class="fine">Competitor prices taken from each vendor's own pricing page on 17 October 2026, the
-same check behind the <a href="why-kam-q.html">full comparison</a>, and not re-checked since:
-<a href="https://www.x1.com/pricing/" rel="nofollow noopener">X1</a> and
-<a href="https://www.lookeen.com/pricing" rel="nofollow noopener">Lookeen</a>. Prices change;
-check before you decide. <b>Where they are better:</b> X1 and Lookeen read the text inside
-documents, which KAM-Q does not, and both run as a panel inside Outlook rather than in their own
-window. <a href="why-kam-q.html">The full comparison</a>.</p>
+<p class="fine"><b>Where these numbers come from.</b> X1's $79 was read from
+<a href="https://www.x1.com/solutions/purchase-options/" rel="nofollow noopener">x1.com's own purchase options page</a>
+on 7 November 2026; that page sells a one year term at $79 and three years at $189, and does not
+say how many machines a license covers. Lookeen's range was last checked on 17 October 2026
+and we have not been able to reach their pricing page since, so treat it as a guide rather than
+a current quote. Prices change; check both before you decide.
+<b>Where they are better:</b> X1 and Lookeen read the text inside documents, which KAM-Q does
+not, and both run as a panel inside Outlook rather than in their own window.
+<a href="why-kam-q.html">The full comparison</a>.</p>
 </div></section>
 
 <section id="pricing"><div class="wrap">
@@ -663,23 +665,27 @@ and we will send the links. Meanwhile the browser version above works on the pho
 
     var PEOPLE = ['Dana Avery', 'Marcus Chen', 'Grace Harper', 'Samuel Kim', 'Luis Rivera',
                   'Nina Patel', 'Mason Reed', 'Elena Novak', 'Priya Shah', 'David Okafor',
-                  'Claire Dubois', 'Nora Blake'];
-    var SUBJECTS = ['Invoice 4649, payment received', 'Revised proposal for Solstice',
-                    'Monthly report', 'Purchase order 4926', 'Q4 invoice summary',
-                    'Delivery confirmation 4793', 'Contract for signature', 'Budget review',
-                    'Meeting notes', 'Access request', 'Proposal: Atlas', 'Can we move Thursday?'];
+                  'Claire Dubois', 'Nora Blake', 'Ruben Ortiz', 'Ellis Ward', 'Tomas Vega',
+                  'Alice Moreau', 'Henry Osei', 'Mina Khoury', 'Jonas Lind', 'Sofia Reyes'];
+    var SUBJECTS = ['Invoice, payment received', 'Revised proposal for Solstice',
+                    'Monthly report', 'Purchase order', 'Q4 invoice summary',
+                    'Delivery confirmation', 'Contract for signature', 'Budget review',
+                    'Meeting notes ref', 'Access request', 'Proposal: Atlas ref',
+                    'Can we move Thursday? ref'];
     var FILES = ['Solstice Proposal v2.pdf', 'Monthly Report.pdf', 'Q4 Invoice Summary.pdf',
                  'Service Agreement.pdf', 'Budget Review.pdf', 'Invoice 4138.pdf',
                  'PO 4928.pdf', 'Atlas Proposal.pdf', 'Meridian Proposal.pdf', 'Site Survey.xlsx'];
     var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
 
+    var SAMPLE_SIZE = 2000;      // must match the count printed in the panel header
     var DATA = [], seed = 7;
     function rnd(n) { seed = (seed * 1103515245 + 12345) % 2147483648; return seed % n; }
-    for (var k = 0; k < 60; k++) {
+    for (var k = 0; k < SAMPLE_SIZE; k++) {
+      var subj = SUBJECTS[(k * 5 + rnd(2)) % SUBJECTS.length];
       DATA.push({
-        subject: SUBJECTS[(k * 5 + rnd(2)) % SUBJECTS.length],
-        person: PEOPLE[(k * 7 + rnd(2)) % PEOPLE.length],
-        file: rnd(10) > 3 ? FILES[(k * 3) % FILES.length] : '',
+        subject: subj + ' ' + (1000 + rnd(8999)),
+        person: PEOPLE[(k * 7 + rnd(3)) % PEOPLE.length],
+        file: rnd(10) > 3 ? FILES[(k * 3 + rnd(2)) % FILES.length] : '',
         when: MONTHS[(k * 4) % MONTHS.length] + ' ' + (1 + rnd(27))
       });
     }
@@ -732,8 +738,14 @@ and we will send the links. Meanwhile the browser version above works on the pho
       countEl.textContent = out.length + ' ' + noun + (q ? ' matching what you typed' : '');
 
       if (!out.length) {
-        rowsEl.innerHTML = '<li><span class="t">Nothing matched. Try <b>invoice</b>, ' +
-          '<b>proposal</b> or <b>Dana</b>.</span><span class="m"></span></li>';
+        // Suggest what THIS view can find. Offering a file name on the People tab, as
+        // one shared message did, just fails again.
+        var tip = view === 'people'
+          ? 'No one by that name. Try <b>Dana</b>, <b>Marcus</b> or <b>Priya</b>.'
+          : (view === 'files'
+              ? 'No files matched. Try <b>.pdf</b>, <b>Proposal</b> or <b>Invoice</b>.'
+              : 'Nothing matched. Try <b>invoice</b>, <b>proposal</b> or <b>budget</b>.');
+        rowsEl.innerHTML = '<li><span class="t">' + tip + '</span><span class="m"></span></li>';
         return;
       }
       var html = '';
