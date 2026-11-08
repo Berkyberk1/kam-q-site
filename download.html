@@ -44,7 +44,7 @@
 <div class="promo"><span class="long"><b>Launch offer:</b> $24.99 for your first year instead of $39.99, with code <code>FIRSTYEAR</code>. It renews at $19.99 a year. Offer ends December 31, 2026.</span><span class="short"><b>First year $24.99</b> with code <code>FIRSTYEAR</code></span></div>
 <header class="top"><div class="wrap">
 <a href="/" aria-label="KAM-Q home"><picture><source srcset="assets/logo-dark-220.png" media="(prefers-color-scheme: dark)"><img src="assets/logo-220.png" width="220" height="62" alt="KAM-Q"></picture></a>
-<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Try it</a><a href="/#see-it-work">See it work</a><a href="download.html">Compatibility</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
+<nav class="sitenav" id="sitenav"><a href="/#features">Features</a><a href="/#try-it">Try it</a><a href="/#see-it-work">See it work</a><a href="download.html">Download</a><a href="/#pricing">Pricing</a><a href="support.html">Support</a></nav>
 <a class="nav-buy navcta" href="download.html" data-ev="Trial CTA Click" data-ev-where="nav">Start free trial</a>
 <button class="navtoggle" id="navtoggle" type="button" aria-expanded="false" aria-controls="sitenav" aria-label="Menu">
 <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
@@ -138,7 +138,7 @@ new Outlook. You can also look around a sample mailbox first without signing in 
 <p>Older versions stay available. If you have stopped renewing, the version you are entitled to can always be downloaded again; write to <a href="mailto:support@kam-q.com">support@kam-q.com</a> and we will send the link.</p>
 </div>
 <section class="band dark sendlink-band"><div class="wrap"><div class="sendlink">
-<h3>Reading this on a phone? Send these links to your computer.</h3>
+<h3>Want these links on another computer?</h3>
 <form class="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="download">
 <label class="vh" for="se-download">Your email address</label>
 <input class="sendemail" id="se-download" name="email" type="email" inputmode="email"
@@ -149,6 +149,7 @@ new Outlook. You can also look around a sample mailbox first without signing in 
 <div class="vh" aria-hidden="true"><label for="sc-download">Company</label>
 <input class="sendco" id="sc-download" name="company" type="text" tabindex="-1" autocomplete="off"></div>
 <button class="btn sendbtn onDark" type="submit">Send link</button>
+
 </form>
 <p class="sendhelp fine onDark">One email with the Windows and Mac links. Nothing else, ever.</p>
 <p class="sendmsg fine onDark" role="status" aria-live="polite"></p>
@@ -332,6 +333,7 @@ new Outlook. You can also look around a sample mailbox first without signing in 
         e.preventDefault();
         if (busy) { return; }                 /* duplicate submit protection */
 
+        var tok = form.querySelector('[name="cf-turnstile-response"]');
         var email = (input.value || '').trim();
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
           say('err', 'That does not look like an email address.');
@@ -361,6 +363,7 @@ new Outlook. You can also look around a sample mailbox first without signing in 
           body: JSON.stringify({
             email: email,
             company: pot ? pot.value : '',    /* honeypot, empty for a real person */
+            turnstile: tok ? tok.value : '',  /* empty until the widget is configured */
             platform: osName(),
             source: where
           })
@@ -373,6 +376,9 @@ new Outlook. You can also look around a sample mailbox first without signing in 
             form.reset();
           } else if (r.status === 429) {
             say('err', 'Those links have already been sent to that address in the last hour. Check your inbox, and your spam folder.');
+          } else if (r.status === 400 && tok) {
+            say('err', 'That check did not pass, so no email was sent. Please try again.');
+            try { window.turnstile.reset(); } catch (e) { /* widget may not be loaded */ }
           } else if (r.status === 503) {
             say('err', 'Sending is not switched on yet. Email ' + MAILTO + ' and we will send the links.');
           } else {

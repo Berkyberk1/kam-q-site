@@ -393,6 +393,8 @@ table.compare td:first-of-type{font-weight:600}
 
 .trustline{margin:22px 0 0;font-size:13.5px;color:var(--navy-muted);text-align:center}
 
-/* Phone only, per the audit. Hidden entirely above the breakpoint so no empty band
-   is left behind on a desktop. */
-@media (min-width:861px){.sendlink,.sendlink-band{display:none}}
+/* Shown at every width. The audit scopes this form to phones, on the reasoning that a
+   visitor already at a computer has no use for it. That misses the case Paul raised:
+   someone at a work computer who wants the installer on their home machine. Deliberate
+   departure from audit item 16, noted in build_site.py as well. */
+.cf-turnstile{flex:1 1 100%;margin-top:4px;min-height:65px}
