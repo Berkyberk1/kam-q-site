@@ -75,9 +75,8 @@ different: <a href="/#see-it-work">watch the one minute recording</a> of the rea
 <a href="/#try-it">search a sample mailbox</a> here on the site, which uses made up mail and
 needs no sign-in.</p>
 <p class="fine m-only"><b>On a phone?</b> <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="guide-top">KAM-Q runs in this browser</a>
-on your own mail, with nothing to install. The Windows and Mac apps install on a computer, so
-open <b>kam-q.com/download</b> there, or write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20download%20links">support@kam-q.com</a>
-and we will send the links.</p>
+on your own mail, with nothing to install. The Windows and Mac apps install on a computer.</p>
+
 </div><h2>Outlook rules and Clean Up</h2>
 <p><b>Clean Up Folder</b> removes redundant messages inside threads, which helps with long internal
 chains. Rules can file a noisy sender automatically once you have identified them. Both are useful
@@ -104,9 +103,23 @@ different: <a href="/#see-it-work">watch the one minute recording</a> of the rea
 <a href="/#try-it">search a sample mailbox</a> here on the site, which uses made up mail and
 needs no sign-in.</p>
 <p class="fine m-only"><b>On a phone?</b> <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="guide-end">KAM-Q runs in this browser</a>
-on your own mail, with nothing to install. The Windows and Mac apps install on a computer, so
-open <b>kam-q.com/download</b> there, or write to <a href="mailto:support@kam-q.com?subject=KAM-Q%20download%20links">support@kam-q.com</a>
-and we will send the links.</p>
+on your own mail, with nothing to install. The Windows and Mac apps install on a computer.</p>
+<div class="sendlink">
+<h3>On your phone? Send the download link to your computer.</h3>
+<form class="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="who-emails-you-most">
+<label class="vh" for="se-whoemailsyoumost">Your email address</label>
+<input class="sendemail" id="se-whoemailsyoumost" name="email" type="email" inputmode="email"
+       autocomplete="email" placeholder="you@company.com" required>
+<!-- Honeypot, and mine rather than David's. Off screen, out of the tab order, hidden from
+     screen readers. A person never sees it; a bot fills everything it finds. The endpoint
+     answers a filled one with a cheerful 200 and sends nothing. -->
+<div class="vh" aria-hidden="true"><label for="sc-whoemailsyoumost">Company</label>
+<input class="sendco" id="sc-whoemailsyoumost" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn sendbtn " type="submit">Send link</button>
+</form>
+<p class="sendhelp fine ">One email with the Windows and Mac links. Nothing else, ever.</p>
+<p class="sendmsg fine " role="status" aria-live="polite"></p>
+</div>
 </div>
 </div>
 </main>
@@ -227,6 +240,124 @@ and we will send the links.</p>
   window.addEventListener('orientationchange', sync);
 })();
 </script>
+<script>
+(function () {
+  "use strict";
 
+  var MAILTO = 'support@kam-q.com';
+
+  function ev(name, props) {
+    try { window.plausible(name, { props: props || {} }); } catch (e) { /* never break the page for a statistic */ }
+  }
+
+  function osName() {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  }
+
+  /* ============== send the download link (audit item 16) ==============
+     Several of these can sit on one page, so each form is wired on its own and every
+     lookup is scoped inside it. No shared ids, no shared state.
+
+     The contract: success is shown, and Send Link Submit fires, only on a 2xx from the
+     Worker, which returns 2xx only after the mail provider has accepted the message.
+     Every other outcome says plainly that nothing was sent.
+
+     The success wording is David's. The error wording is mine; he gives none. */
+  var forms = document.querySelectorAll('.sendform');
+
+  for (var f = 0; f < forms.length; f++) {
+    (function (form) {
+      var box = form.parentNode;
+      var input = form.querySelector('.sendemail');
+      var pot = form.querySelector('.sendco');
+      var btn = form.querySelector('.sendbtn');
+      var msg = box.querySelector('.sendmsg');
+      var help = box.querySelector('.sendhelp');
+      var where = form.getAttribute('data-where') || 'home-closing';
+      var ENDPOINT = form.getAttribute('data-endpoint') || '';
+      var busy = false;
+
+      function say(state, text) {
+        msg.dataset.state = state;
+        msg.textContent = text;
+        if (help) { help.hidden = !!text; }   /* the result replaces the promise */
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (busy) { return; }                 /* duplicate submit protection */
+
+        var email = (input.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+          say('err', 'That does not look like an email address.');
+          input.focus();
+          return;
+        }
+        if (!ENDPOINT) {
+          say('err', 'This form is not connected yet. Email ' + MAILTO + ' and we will send the links.');
+          return;
+        }
+
+        busy = true;
+        btn.disabled = true;
+        say('', 'Sending\u2026');
+
+        var done = false;
+        var timer = window.setTimeout(function () {
+          if (done) { return; }
+          done = true;
+          say('err', 'That took too long. Nothing was sent. Please try again.');
+          busy = false; btn.disabled = false;
+        }, 15000);
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            company: pot ? pot.value : '',    /* honeypot, empty for a real person */
+            platform: osName(),
+            source: where
+          })
+        }).then(function (r) {
+          if (done) { return; }
+          done = true; window.clearTimeout(timer);
+          if (r.ok) {
+            ev('Send Link Submit', { location: where });        /* success branch only */
+            say('ok', 'Done. Check your inbox on your computer and open the link there.');
+            form.reset();
+          } else if (r.status === 429) {
+            say('err', 'Those links have already been sent to that address in the last hour. Check your inbox, and your spam folder.');
+          } else if (r.status === 503) {
+            say('err', 'Sending is not switched on yet. Email ' + MAILTO + ' and we will send the links.');
+          } else {
+            say('err', 'That did not go through, so no email was sent. Please try again.');
+          }
+        }).catch(function () {
+          if (done) { return; }
+          done = true; window.clearTimeout(timer);
+          say('err', 'Could not reach the server, so no email was sent. Please try again.');
+        }).then(function () {
+          busy = false; btn.disabled = false;
+        });
+      });
+    })(forms[f]);
+  }
+})();
+</script>
 </body>
 </html>

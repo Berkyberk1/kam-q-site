@@ -417,23 +417,25 @@ on the market fixed it at a sensible price. If something is wrong, write to
 <a class="btn ghost onDark" href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch" data-ev-where="home-closing">Use it in your browser</a>
 </div>
 
-<div class="sendlink" id="sendlink">
+<div class="sendlink">
 <h3>On your phone? Send the download link to your computer.</h3>
-<p class="fine onDark">One email with the Windows and Mac download links and the compatibility
-note. Nothing else, and you are not added to any list.</p>
-<form id="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="home-closing">
-<label class="vh" for="sendemail">Your email address</label>
-<input id="sendemail" name="email" type="email" inputmode="email" autocomplete="email"
-       placeholder="you@example.com" required>
-<!-- Honeypot. Off screen, not in the tab order, and told to screen readers to ignore it.
-     A person never sees it; a bot fills everything it finds. The endpoint answers a
-     filled one with a cheerful 200 and sends nothing. -->
-<div class="vh" aria-hidden="true"><label for="sendco">Company</label>
-<input id="sendco" name="company" type="text" tabindex="-1" autocomplete="off"></div>
-<button class="btn onDark" type="submit" id="sendbtn">Send the link</button>
+<form class="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="home-closing">
+<label class="vh" for="se-homeclosing">Your email address</label>
+<input class="sendemail" id="se-homeclosing" name="email" type="email" inputmode="email"
+       autocomplete="email" placeholder="you@company.com" required>
+<!-- Honeypot, and mine rather than David's. Off screen, out of the tab order, hidden from
+     screen readers. A person never sees it; a bot fills everything it finds. The endpoint
+     answers a filled one with a cheerful 200 and sends nothing. -->
+<div class="vh" aria-hidden="true"><label for="sc-homeclosing">Company</label>
+<input class="sendco" id="sc-homeclosing" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn sendbtn onDark" type="submit">Send link</button>
 </form>
-<p class="sendmsg" id="sendmsg" role="status" aria-live="polite"></p>
+<p class="sendhelp fine onDark">One email with the Windows and Mac links. Nothing else, ever.</p>
+<p class="sendmsg fine onDark" role="status" aria-live="polite"></p>
 </div>
+
+<!-- The trust line David shows under the form in the closing band of his mockup. -->
+<p class="trustline">Signed installer &middot; Private search &middot; 30 day refund</p>
 </div></section>
 
 </main>
@@ -825,86 +827,95 @@ note. Nothing else, and you are not added to any list.</p>
     return 'other';
   }
 
-  /* ============== send the download link (audit 16) ==============
-     The brief is explicit: show success only after the email service
-     accepts the message. So success is shown on a 2xx response from the
-     form endpoint and on nothing else. A network failure, a non-2xx, or
-     an unconfigured endpoint all report failure in plain words, and the
-     Send Link Submit event fires only on the success branch.
+  /* ============== send the download link (audit item 16) ==============
+     Several of these can sit on one page, so each form is wired on its own and every
+     lookup is scoped inside it. No shared ids, no shared state.
 
-     The address is never put in the URL, never written to analytics and
-     never logged here. It is sent in the request body and nowhere else. */
-  (function () {
-    var form = document.getElementById('sendform');
-    if (!form) { return; }
-    var msg = document.getElementById('sendmsg');
-    var btn = document.getElementById('sendbtn');
-    var input = document.getElementById('sendemail');
-    var ENDPOINT = form.getAttribute('data-endpoint') || '';
-    var busy = false;
+     The contract: success is shown, and Send Link Submit fires, only on a 2xx from the
+     Worker, which returns 2xx only after the mail provider has accepted the message.
+     Every other outcome says plainly that nothing was sent.
 
-    function say(state, text) { msg.dataset.state = state; msg.textContent = text; }
+     The success wording is David's. The error wording is mine; he gives none. */
+  var forms = document.querySelectorAll('.sendform');
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (busy) { return; }                       /* duplicate submit protection */
+  for (var f = 0; f < forms.length; f++) {
+    (function (form) {
+      var box = form.parentNode;
+      var input = form.querySelector('.sendemail');
+      var pot = form.querySelector('.sendco');
+      var btn = form.querySelector('.sendbtn');
+      var msg = box.querySelector('.sendmsg');
+      var help = box.querySelector('.sendhelp');
+      var where = form.getAttribute('data-where') || 'home-closing';
+      var ENDPOINT = form.getAttribute('data-endpoint') || '';
+      var busy = false;
 
-      var email = (input.value || '').trim();
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
-        say('err', 'That does not look like an email address.');
-        input.focus();
-        return;
-      }
-      if (!ENDPOINT) {
-        say('err', 'This form is not connected yet. Email support@kam-q.com and we will send the links.');
-        return;
+      function say(state, text) {
+        msg.dataset.state = state;
+        msg.textContent = text;
+        if (help) { help.hidden = !!text; }   /* the result replaces the promise */
       }
 
-      busy = true;
-      btn.disabled = true;
-      say('', 'Sending\u2026');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (busy) { return; }                 /* duplicate submit protection */
 
-      var done = false;
-      var timer = window.setTimeout(function () {
-        if (done) { return; }
-        done = true;
-        say('err', 'That took too long. Nothing was sent. Please try again.');
-        busy = false; btn.disabled = false;
-      }, 15000);
-
-      var pot = document.getElementById('sendco');
-      fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          company: pot ? pot.value : '',          /* honeypot, empty for a real person */
-          platform: osName(),
-          source: form.getAttribute('data-where') || 'home-closing'
-        })
-      }).then(function (r) {
-        if (done) { return; }
-        done = true; window.clearTimeout(timer);
-        if (r.ok) {
-          ev('Send Link Submit', { location: form.getAttribute('data-where') || 'home-closing' });   /* success branch only */
-          say('ok', 'Sent. Check ' + email + ' for the download links.');
-          form.reset();
-        } else if (r.status === 429) {
-          say('err', 'That address has already been sent the links in the last hour. Check your inbox and your spam folder.');
-        } else if (r.status === 503) {
-          say('err', 'Sending is not switched on yet. Email ' + MAILTO + ' and we will send the links.');
-        } else {
-          say('err', 'That did not go through, so no email was sent. Please try again.');
+        var email = (input.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+          say('err', 'That does not look like an email address.');
+          input.focus();
+          return;
         }
-      }).catch(function () {
-        if (done) { return; }
-        done = true; window.clearTimeout(timer);
-        say('err', 'Could not reach the server, so no email was sent. Please try again.');
-      }).then(function () {
-        busy = false; btn.disabled = false;
+        if (!ENDPOINT) {
+          say('err', 'This form is not connected yet. Email ' + MAILTO + ' and we will send the links.');
+          return;
+        }
+
+        busy = true;
+        btn.disabled = true;
+        say('', 'Sending\u2026');
+
+        var done = false;
+        var timer = window.setTimeout(function () {
+          if (done) { return; }
+          done = true;
+          say('err', 'That took too long. Nothing was sent. Please try again.');
+          busy = false; btn.disabled = false;
+        }, 15000);
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            company: pot ? pot.value : '',    /* honeypot, empty for a real person */
+            platform: osName(),
+            source: where
+          })
+        }).then(function (r) {
+          if (done) { return; }
+          done = true; window.clearTimeout(timer);
+          if (r.ok) {
+            ev('Send Link Submit', { location: where });        /* success branch only */
+            say('ok', 'Done. Check your inbox on your computer and open the link there.');
+            form.reset();
+          } else if (r.status === 429) {
+            say('err', 'Those links have already been sent to that address in the last hour. Check your inbox, and your spam folder.');
+          } else if (r.status === 503) {
+            say('err', 'Sending is not switched on yet. Email ' + MAILTO + ' and we will send the links.');
+          } else {
+            say('err', 'That did not go through, so no email was sent. Please try again.');
+          }
+        }).catch(function () {
+          if (done) { return; }
+          done = true; window.clearTimeout(timer);
+          say('err', 'Could not reach the server, so no email was sent. Please try again.');
+        }).then(function () {
+          busy = false; btn.disabled = false;
+        });
       });
-    });
-  })();
+    })(forms[f]);
+  }
 })();
 </script>
 </body>

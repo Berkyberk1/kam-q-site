@@ -366,3 +366,33 @@ table.compare td:first-of-type{font-weight:600}
 .trybox-act{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 0}
 .btn.sm{padding:9px 17px;font-size:15px;border-radius:10px}
 .comparecta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 24px}
+
+/* ---- send the download link (audit item 16) ----------------------------
+   David scopes this form to phones: a visitor already sitting at a computer has no
+   use for it. He gives no desktop version, so there isn't one, and the whole block
+   is hidden above the phone breakpoint rather than merely narrowed. */
+.sendlink{max-width:520px;margin:26px auto 0;text-align:left}
+.sendlink h3{font-size:16.5px;margin-bottom:10px}
+.sendform{display:flex;gap:9px;flex-wrap:wrap}
+.sendform .sendemail{flex:1 1 200px;min-width:0;font:inherit;font-size:16px;
+  padding:12px 14px;border-radius:10px;border:2px solid var(--line);
+  background:var(--card);color:var(--text)}
+.sendform .sendemail:focus{border-color:var(--blue);outline:none}
+.sendhelp,.sendmsg{margin:10px 0 0;font-size:13.5px}
+.sendmsg{font-weight:600;min-height:1.2em}
+.sendmsg[data-state="ok"]{color:var(--green)}
+.sendmsg[data-state="err"]{color:#B3261E}
+@media (prefers-color-scheme:dark){.sendmsg[data-state="err"]{color:#FF8A80}}
+
+/* On the navy closing band the field needs its own colours, not the page's. */
+.dark .sendform .sendemail{border-color:#2C3F5E;background:#0F2240;color:#F2F5F9}
+.dark .sendform .sendemail::placeholder{color:#8FA6C8}
+.dark .sendform .sendemail:focus{border-color:#9CC4FF}
+.dark .sendmsg[data-state="ok"]{color:#7DDCA4}
+.dark .sendmsg[data-state="err"]{color:#FFADA6}
+
+.trustline{margin:22px 0 0;font-size:13.5px;color:var(--navy-muted);text-align:center}
+
+/* Phone only, per the audit. Hidden entirely above the breakpoint so no empty band
+   is left behind on a desktop. */
+@media (min-width:861px){.sendlink,.sendlink-band{display:none}}
