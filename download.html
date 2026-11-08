@@ -137,7 +137,23 @@ new Outlook. You can also look around a sample mailbox first without signing in 
 <p><b>On a Mac:</b> our apps are signed and notarized by Apple, which means Apple has checked them for malware. A genuine KAM-Q opens without macOS warning you that the developer cannot be verified. If you see that warning, the copy is not ours.</p>
 <p>Older versions stay available. If you have stopped renewing, the version you are entitled to can always be downloaded again; write to <a href="mailto:support@kam-q.com">support@kam-q.com</a> and we will send the link.</p>
 </div>
-
+<section class="band dark"><div class="wrap"><div class="sendlink" id="sendlink">
+<h3>Reading this on a phone? Send these links to your computer.</h3>
+<p class="fine onDark">One email with the Windows and Mac download links and the compatibility
+note. Nothing else, and you are not added to any list.</p>
+<form id="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="download">
+<label class="vh" for="sendemail">Your email address</label>
+<input id="sendemail" name="email" type="email" inputmode="email" autocomplete="email"
+       placeholder="you@example.com" required>
+<!-- Honeypot. Off screen, not in the tab order, and told to screen readers to ignore it.
+     A person never sees it; a bot fills everything it finds. The endpoint answers a
+     filled one with a cheerful 200 and sends nothing. -->
+<div class="vh" aria-hidden="true"><label for="sendco">Company</label>
+<input id="sendco" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn onDark" type="submit" id="sendbtn">Send the link</button>
+</form>
+<p class="sendmsg" id="sendmsg" role="status" aria-live="polite"></p>
+</div></div></section>
 </main>
 <footer><div class="wrap">
 <div>&copy; 2026 PRB Interactive Inc. KAM-Q&trade; is a trademark of PRB Interactive Inc.</div>
@@ -256,6 +272,115 @@ new Outlook. You can also look around a sample mailbox first without signing in 
   window.addEventListener('orientationchange', sync);
 })();
 </script>
+<script>
+(function () {
+  "use strict";
 
+  var MAILTO = 'support@kam-q.com';
+
+  function ev(name, props) {
+    try { window.plausible(name, { props: props || {} }); } catch (e) { /* never break the page for a statistic */ }
+  }
+
+  function osName() {
+    try {
+      var d = navigator.userAgentData;
+      if (d && d.platform) {
+        var q = d.platform.toLowerCase();
+        if (q.indexOf('win') === 0) { return 'windows'; }
+        if (q.indexOf('mac') === 0) { return 'mac'; }
+        if (q.indexOf('android') === 0) { return 'android'; }
+      }
+      var u = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(u)) { return 'ios'; }
+      if (/Android/i.test(u)) { return 'android'; }
+      if (/Macintosh|Mac OS X/i.test(u)) { return 'mac'; }
+      if (/Windows/i.test(u)) { return 'windows'; }
+    } catch (e) { /* fall through */ }
+    return 'other';
+  }
+
+  /* ============== send the download link (audit 16) ==============
+     The brief is explicit: show success only after the email service
+     accepts the message. So success is shown on a 2xx response from the
+     form endpoint and on nothing else. A network failure, a non-2xx, or
+     an unconfigured endpoint all report failure in plain words, and the
+     Send Link Submit event fires only on the success branch.
+
+     The address is never put in the URL, never written to analytics and
+     never logged here. It is sent in the request body and nowhere else. */
+  (function () {
+    var form = document.getElementById('sendform');
+    if (!form) { return; }
+    var msg = document.getElementById('sendmsg');
+    var btn = document.getElementById('sendbtn');
+    var input = document.getElementById('sendemail');
+    var ENDPOINT = form.getAttribute('data-endpoint') || '';
+    var busy = false;
+
+    function say(state, text) { msg.dataset.state = state; msg.textContent = text; }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (busy) { return; }                       /* duplicate submit protection */
+
+      var email = (input.value || '').trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+        say('err', 'That does not look like an email address.');
+        input.focus();
+        return;
+      }
+      if (!ENDPOINT) {
+        say('err', 'This form is not connected yet. Email support@kam-q.com and we will send the links.');
+        return;
+      }
+
+      busy = true;
+      btn.disabled = true;
+      say('', 'Sending\u2026');
+
+      var done = false;
+      var timer = window.setTimeout(function () {
+        if (done) { return; }
+        done = true;
+        say('err', 'That took too long. Nothing was sent. Please try again.');
+        busy = false; btn.disabled = false;
+      }, 15000);
+
+      var pot = document.getElementById('sendco');
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          company: pot ? pot.value : '',          /* honeypot, empty for a real person */
+          platform: osName(),
+          source: form.getAttribute('data-where') || 'home-closing'
+        })
+      }).then(function (r) {
+        if (done) { return; }
+        done = true; window.clearTimeout(timer);
+        if (r.ok) {
+          ev('Send Link Submit', { location: form.getAttribute('data-where') || 'home-closing' });   /* success branch only */
+          say('ok', 'Sent. Check ' + email + ' for the download links.');
+          form.reset();
+        } else if (r.status === 429) {
+          say('err', 'That address has already been sent the links in the last hour. Check your inbox and your spam folder.');
+        } else if (r.status === 503) {
+          say('err', 'Sending is not switched on yet. Email ' + MAILTO + ' and we will send the links.');
+        } else {
+          say('err', 'That did not go through, so no email was sent. Please try again.');
+        }
+      }).catch(function () {
+        if (done) { return; }
+        done = true; window.clearTimeout(timer);
+        say('err', 'Could not reach the server, so no email was sent. Please try again.');
+      }).then(function () {
+        busy = false; btn.disabled = false;
+      });
+    });
+  })();
+})();
+</script>
 </body>
 </html>
