@@ -442,6 +442,31 @@ on the market fixed it at a sensible price. If something is wrong, write to
 <div><a href="whats-new.html">What&#39;s new</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="support.html">Support</a></div>
 </div></footer>
 <script>
+  /* ---- mobile menu (audit 03) ---- */
+  (function () {
+    var btn = document.getElementById('navtoggle');
+    var nav = document.getElementById('sitenav');
+    if (!btn || !nav) { return; }
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target && e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  })();
+</script>
+<script>
 (function () {
   var NAV_MS = 200;
 
@@ -591,30 +616,6 @@ on the market fixed it at a sensible price. If something is wrong, write to
     } catch (e) { /* fall through */ }
     return 'other';
   }
-
-  /* ---- mobile menu (audit 03) ---- */
-  (function () {
-    var btn = document.getElementById('navtoggle');
-    var nav = document.getElementById('sitenav');
-    if (!btn || !nav) { return; }
-    btn.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    nav.addEventListener('click', function (e) {
-      if (e.target && e.target.tagName === 'A') {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.focus();
-      }
-    });
-  })();
 
   /* ---- Scroll 50 (audit 06, tracking 03). Once per page view. ---- */
   (function () {
