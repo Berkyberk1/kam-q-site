@@ -398,3 +398,117 @@ table.compare td:first-of-type{font-weight:600}
    someone at a work computer who wants the installer on their home machine. Deliberate
    departure from audit item 16, noted in build_site.py as well. */
 .cf-turnstile{flex:1 1 100%;margin-top:4px;min-height:65px}
+
+/* ---- pale band (David, 8 November) --------------------------------------
+   Navy is now the closing band only, so it lands as the one moment it is meant
+   to be. See the difference and Privacy move to the pale blue already used by
+   the proof strip. Text reverts to the page's own colours, so nothing here
+   restates them; only the surface changes. */
+.soft{background:var(--soft)}
+.soft .shot img,.soft .shot video{background:var(--card)}
+
+/* The app frame in the recording is dark. On navy it separated itself; on pale
+   blue it needs an edge or it bleeds into the band. */
+.demo-video video{border:1px solid var(--line);border-radius:12px;display:block;
+  width:100%;height:auto;box-shadow:0 1px 3px rgba(11,26,54,.10)}
+.soft .demo-video figcaption{color:var(--muted)}
+
+/* The privacy checklist ticks were cyan for a navy ground; on pale blue that is
+   too light to read as a mark. */
+.soft .checks li::before{background:var(--green)}
+
+/* ---- sample search, tightened (David, 8 November) ----------------------
+   Was about 1,100px on desktop. The panel keeps its three views and its search
+   box; what goes is vertical air, two rows of results, and a closing paragraph
+   whose two links now sit on one line beneath it. */
+#try-it{padding-block:40px}
+#try-it .sub{margin-bottom:14px}
+.sample-body{padding:14px}
+.sample-rows li{padding:9px 12px}
+.sample-search{margin-bottom:10px}
+.sample-tabs{margin-bottom:10px}
+.samplefoot{margin:14px 0 0;text-align:center}
+
+/* Links and outline buttons on the pale band. The standard blue measures 4.07:1 against
+   --soft, below AA. The darker --ink, already used for eyebrows, clears it. Added when
+   See the difference and Privacy moved off navy, 8 November. */
+.soft a:not(.btn){color:var(--ink)}
+.soft .btn.ghost{color:var(--ink);border-color:var(--ink)}
+
+/* ============================================================
+   Refinement pass, 8 November 2026. Spacing, wrapping, button
+   hierarchy and the dark-mode contrast fix. No redesign: every
+   rule here changes spacing or colour, none changes layout
+   structure, and no content is removed by CSS.
+   ============================================================ */
+
+/* ---- 1. widows, solved once rather than per sentence ----------------
+   Ten headings widowed at 360 and 480 even after five were rewritten by
+   hand, and the next width would break a different one. Headings already
+   carry text-wrap:balance. `pretty` does the same job for running text:
+   it avoids leaving a single word on the last line. Browsers without it
+   fall back to normal wrapping, so nothing breaks. */
+p.lead, p.sub, p.fine, figcaption, .ticks li, .checks li, .proofstrip span,
+.way p, .card p, details p { text-wrap: pretty }
+
+/* ---- 2. vertical space scaled to the screen -------------------------
+   Every section carried 112px of padding at every width. Across thirteen
+   sections that was about 1,456px of air on a phone, roughly a tenth of
+   the page. Content is untouched; only the gaps shrink. */
+section{padding:44px 0}                       /* desktop: 112 -> 88 */
+@media (max-width:860px){
+  section{padding:36px 0}                     /* phone:   112 -> 72 */
+  .band{padding-block:36px}
+}
+#try-it{padding-block:40px}                   /* keeps the 798px panel as measured */
+@media (max-width:860px){#try-it{padding-block:32px}}
+
+/* ---- 3. features: closer together, screenshots no smaller -----------
+   The three rows were 16% of the page. The saving comes from the gaps
+   between them, not from the images.
+
+   The reversed middle row also gave its figure the narrower column, so
+   the People screenshot, which is the one that best demonstrates the
+   product, rendered at 444px against 554px for the other two. Both rows
+   now put the figure in the wider column, which makes that screenshot
+   BIGGER. It costs about 70px and is worth it. */
+.feature{margin:0 0 30px;gap:30px}
+.feature.rev{grid-template-columns:1.25fr 1fr}
+@media (max-width:860px){.feature{margin:0 0 26px;gap:16px}}
+.feature figure{margin:0}
+
+/* ---- 5. one visual language for actions -----------------------------
+   Solid blue is the free trial and nothing else, everywhere on the page.
+   Everything secondary is an outline. The platform cards were solid and
+   competed with the hero's primary action. */
+.platforms .btn.sm{background:transparent;color:var(--ink);border-color:var(--ink)}
+.soft .platforms .btn.sm{color:var(--ink);border-color:var(--ink)}
+.pricebuy{display:grid;gap:8px;margin-top:14px}
+.pricebuy .btn{width:100%}
+
+/* ---- 6. dark mode solid buttons -------------------------------------
+   --blue lightens for dark mode while --on-blue stayed #FFFFFF, so every
+   solid button on the site was white on light blue: 2.77:1, well under
+   AA, and it affected the hero and the pricing button too. This was not
+   introduced by the band change; it predates it. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--on-blue:#06121F}
+}
+:root[data-theme="dark"]{--on-blue:#06121F}
+
+/* ---- inline links and small labels: the last AA gaps ------------------
+   Fifteen light-mode failures, all marginal and all predating this pass:
+   the link blue measured 4.40:1 on the page background and 4.07:1 on the
+   pale band, and the platform labels' green 4.38:1, against the 4.5
+   needed. --ink is the darker blue already used for eyebrows. The solid
+   button keeps --blue, which passes on its own white text. In dark mode
+   --ink is the light blue, so these invert correctly. */
+a:not(.btn){color:var(--ink)}
+.btn.ghost{color:var(--ink);border-color:var(--ink)}
+.platforms .works{color:var(--greenink)}
+:root{--greenink:#15663A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--greenink:#5CCE88}}
+:root[data-theme="dark"]{--greenink:#5CCE88}
+/* The nav pill is a filled button that is not class .btn, so the link rule
+   above caught it and put dark blue on blue. Restated at equal weight. */
+a.nav-buy{color:var(--on-blue)}
