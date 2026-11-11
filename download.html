@@ -58,6 +58,27 @@
 <!-- Audit item 17 and roadmap item 5: the single most common wrong purchase is somebody on
      the new Outlook buying the desktop app. Saying so before the download buttons is
      cheaper than refunding it afterwards. -->
+<div class="sendlink compact m-only">
+<h3>Reading this on a phone?</h3>
+<p class="fine sendlead">Everything below installs on a Windows or Mac computer. Send yourself the links.</p>
+<form class="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="download-top-phone">
+<label class="vh" for="se-downloadtopphone">Your email address</label>
+<input class="sendemail" id="se-downloadtopphone" name="email" type="email" inputmode="email"
+       autocomplete="email" placeholder="you@company.com" required>
+<!-- Honeypot, and mine rather than David's. Off screen, out of the tab order, hidden from
+     screen readers. A person never sees it; a bot fills everything it finds. The endpoint
+     answers a filled one with a cheerful 200 and sends nothing. -->
+<div class="vh" aria-hidden="true"><label for="sc-downloadtopphone">Company</label>
+<input class="sendco" id="sc-downloadtopphone" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn sendbtn onLight" type="submit">Send link</button>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAF48sQ9FAA5a3rub" data-size="flexible" data-theme="auto" data-action="send-link"></div>
+</form>
+<p class="sendhelp fine onLight">One email with the Windows and Mac links. Nothing else, ever.</p>
+<p class="sendmsg fine onLight" role="status" aria-live="polite"></p>
+</div>
+<p class="fine m-only" style="margin:-6px 0 22px">Or <a href="https://berkyberk1.github.io/MailQ/" data-ev="Demo Launch"
+data-ev-where="download-top-phone">open the browser version on this phone</a>, which needs
+nothing installed.</p>
 <div class="note compat" style="margin:0 0 26px">
 <b>Check this first.</b> The Windows and Mac apps work with <b>classic Outlook</b>, not the new
 Outlook. If you are on the new Outlook, or you are reading this on a phone, use the

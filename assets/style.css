@@ -512,3 +512,39 @@ a:not(.btn){color:var(--ink)}
 /* The nav pill is a filled button that is not class .btn, so the link rule
    above caught it and put dark blue on blue. Restated at equal weight. */
 a.nav-buy{color:var(--on-blue)}
+
+/* ---- compact send-the-link form, for a light surface near the top of a page ----
+   The base .sendlink above is painted for the dark closing band: a dark input, a dark
+   border, light text. These two instances sit in the hero and at the top of the download
+   page, both light, so every one of those colours has to be answered. Tokens only, so it
+   follows the theme instead of being a light-mode-only block. */
+.sendlink.compact{max-width:none;margin:18px 0 0;padding:16px;border-top:0;
+  border:1px solid var(--line);border-radius:12px;background:var(--soft)}
+.sendlink.compact h3{font-size:16px;margin:0 0 4px;color:var(--navy)}
+.sendlink.compact .sendlead{margin:0;color:var(--text);font-size:14.5px}
+.sendlink.compact form{margin-top:10px;gap:8px}
+.sendlink.compact input[type=email]{flex:1 1 200px;padding:11px 13px;
+  border:2px solid var(--line);background:var(--card);color:var(--text)}
+.sendlink.compact input[type=email]::placeholder{color:var(--muted)}
+.sendlink.compact input[type=email]:focus{border-color:var(--blue)}
+.sendlink.compact .sendmsg{font-size:14px}
+/* On a light card the success and error colours from the dark band do not carry enough
+   contrast, so they are restated against this surface. */
+.sendlink.compact .sendmsg[data-state="ok"]{color:var(--green)}
+.sendlink.compact .sendmsg[data-state="err"]{color:#A3231B}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .sendlink.compact .sendmsg[data-state="err"]{color:#FFADA6}
+}
+:root[data-theme="dark"] .sendlink.compact .sendmsg[data-state="err"]{color:#FFADA6}
+
+/* The compact form sits above the fold on a phone, so its height is the whole point.
+   The input and the button share a row rather than stacking, the helper line is one
+   line, and the empty status line does not reserve space until there is something to
+   say. The status line keeps its own margin so the layout shift on success is one line,
+   which is acceptable where reserving 17px permanently is not. */
+.sendlink.compact form{gap:8px}
+.sendlink.compact input[type=email]{flex:1 1 140px}
+.sendlink.compact .sendbtn{flex:0 0 auto}
+.sendlink.compact .sendhelp{font-size:13.5px;margin:8px 0 0}
+.sendlink.compact .sendmsg{min-height:0;margin:0}
+.sendlink.compact .sendmsg:not(:empty){margin-top:8px}

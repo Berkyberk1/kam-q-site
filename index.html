@@ -52,7 +52,18 @@
   "@type": "Offer",
   "price": "39.99",
   "priceCurrency": "USD",
-  "url": "https://kam-q.com/download.html"
+  "priceValidUntil": "2027-06-30",
+  "availability": "https://schema.org/InStock",
+  "description": "First year. Renews at $19.99 a year. Free for 7 days, no card.",
+  "url": "https://kam-q.com/download.html",
+  "priceSpecification": {
+   "@type": "UnitPriceSpecification",
+   "price": "19.99",
+   "priceCurrency": "USD",
+   "billingDuration": 1,
+   "unitCode": "ANN",
+   "description": "Annual subscription renewal"
+  }
  },
  "publisher": {
   "@type": "Organization",
@@ -90,10 +101,25 @@ attached, and have the answer before you have finished typing.</p>
 </div>
 <p class="fine d-only">Classic Outlook on Windows and Mac, Apple Mail, or any Microsoft 365,
 Outlook.com or Gmail account in your browser.</p>
-<p class="fine m-only"><b>It runs right here, in this browser.</b> Sign in to Microsoft 365,
-Outlook.com or Gmail and search your own mail, with nothing to install. No credit card, 30 day
-refund. The Windows and Mac apps are separate and install on a computer:
-<a href="download.html" data-ev="Trial CTA Click" data-ev-where="home-hero-phone">see those</a>.</p>
+<div class="sendlink compact m-only">
+<h3>Want the Windows or Mac app?</h3>
+<p class="fine sendlead">Those install on a computer. Send yourself the links.</p>
+<form class="sendform" novalidate data-endpoint="https://kamq-sendlink.pberkson1.workers.dev" data-where="home-hero-phone">
+<label class="vh" for="se-homeherophone">Your email address</label>
+<input class="sendemail" id="se-homeherophone" name="email" type="email" inputmode="email"
+       autocomplete="email" placeholder="you@company.com" required>
+<!-- Honeypot, and mine rather than David's. Off screen, out of the tab order, hidden from
+     screen readers. A person never sees it; a bot fills everything it finds. The endpoint
+     answers a filled one with a cheerful 200 and sends nothing. -->
+<div class="vh" aria-hidden="true"><label for="sc-homeherophone">Company</label>
+<input class="sendco" id="sc-homeherophone" name="company" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn sendbtn onLight" type="submit">Send link</button>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAF48sQ9FAA5a3rub" data-size="flexible" data-theme="auto" data-action="send-link"></div>
+</form>
+<p class="sendhelp fine onLight">One email with the Windows and Mac links. Nothing else, ever.</p>
+<p class="sendmsg fine onLight" role="status" aria-live="polite"></p>
+</div>
+<p class="fine m-only">The browser version above runs right here, with nothing to install.</p>
 </div>
 <div class="hero-art">
 <figure class="shot hero-shot">
